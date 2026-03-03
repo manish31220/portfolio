@@ -7,17 +7,21 @@
   <meta name="description" content="Manish Vemulapalli — Java Full Stack Developer focused on Spring Boot, Angular, microservices, Kafka, AWS, and cloud-native systems." />
   <style>
     :root{
-      --bg:#040408;
-      --bg-2:#090B10;
-      --card:#0D1016;
-      --card-2:#141922;
-      --text:#E6E9EE;
-      --muted:#98A1AE;
-      --line:#202632;
-      --accent:#B89A5E;
-      --accent-2:#646A73;
-      --shadow:0 18px 50px rgba(0,0,0,.52);
-      --glow:0 0 0 1px rgba(184,154,94,.10), 0 0 30px rgba(184,154,94,.06);
+      --bg:#030406;
+      --bg-2:#07090d;
+      --bg-3:#0a0c11;
+      --card:#0e1117;
+      --card-2:#141820;
+      --card-3:#1a2029;
+      --text:#e7eaee;
+      --muted:#96a0ab;
+      --line:#232933;
+      --line-2:#2d3440;
+      --accent:#b79a5c;
+      --accent-strong:#d3b06a;
+      --accent-soft:#7b6850;
+      --steel:#646a73;
+      --shadow:0 18px 50px rgba(0,0,0,.58);
       --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
       --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
@@ -28,11 +32,11 @@
     body {
       margin: 0;
       font-family: var(--sans);
-      background:
-        radial-gradient(circle at 15% 0%, rgba(100,106,115,.10), transparent 22%),
-        radial-gradient(circle at 85% 10%, rgba(184,154,94,.06), transparent 18%),
-        linear-gradient(180deg, #040408 0%, #06070B 35%, #090B10 60%, #040408 100%);
       color: var(--text);
+      background:
+        radial-gradient(circle at 15% 0%, rgba(100,106,115,.08), transparent 20%),
+        radial-gradient(circle at 85% 8%, rgba(183,154,92,.05), transparent 16%),
+        linear-gradient(180deg, #030406 0%, #06070a 28%, #090b10 55%, #05060a 100%);
       overflow-x: hidden;
     }
 
@@ -42,9 +46,9 @@
       inset: 0;
       pointer-events: none;
       background:
-        linear-gradient(to bottom, rgba(255,255,255,.02), transparent 18%),
-        radial-gradient(circle at center, transparent 55%, rgba(0,0,0,.20) 100%);
-      opacity: .45;
+        linear-gradient(to bottom, rgba(255,255,255,.02), transparent 14%),
+        radial-gradient(circle at center, transparent 58%, rgba(0,0,0,.18) 100%);
+      opacity: .38;
       z-index: 0;
     }
 
@@ -62,11 +66,15 @@
     }
 
     .sidebar, .topbar, .hero, section.block, .card, .job, .stat {
-      border: 1px solid rgba(100,106,115,.22);
+      border: 1px solid rgba(100,106,115,.18);
+      background: linear-gradient(180deg, rgba(14,17,23,.98), rgba(20,24,32,.96));
       box-shadow: var(--shadow);
-      background: linear-gradient(180deg, rgba(13,16,22,.96), rgba(20,25,34,.94));
-      transition: transform .28s ease, border-color .28s ease, box-shadow .28s ease, background .28s ease;
-      backdrop-filter: blur(8px);
+      transition:
+        transform .26s ease,
+        border-color .26s ease,
+        box-shadow .26s ease,
+        background .26s ease;
+      backdrop-filter: blur(10px);
     }
 
     .sidebar {
@@ -75,7 +83,7 @@
       border-radius: 28px;
       padding: 26px;
       overflow: hidden;
-      animation: fadeUp .7s ease both;
+      animation: panel-enter .7s ease both;
     }
 
     .sidebar::before{
@@ -83,49 +91,50 @@
       position:absolute;
       inset:0 auto auto 0;
       width:100%;
-      height:160px;
+      height:150px;
       background:
-        linear-gradient(135deg, rgba(184,154,94,.08), rgba(100,106,115,.10), transparent 72%);
+        linear-gradient(135deg, rgba(183,154,92,.07), rgba(100,106,115,.08), transparent 72%);
       pointer-events:none;
-      animation: breathe 9s ease-in-out infinite;
+      animation: breathe 10s ease-in-out infinite;
     }
 
     .sidebar::after{
       content:"";
       position:absolute;
-      inset:auto -20% -30% auto;
-      width:260px;
-      height:260px;
-      background: radial-gradient(circle, rgba(184,154,94,.05), transparent 65%);
-      pointer-events:none;
+      right:-40px;
+      bottom:-60px;
+      width:180px;
+      height:180px;
+      background: radial-gradient(circle, rgba(183,154,92,.04), transparent 68%);
       filter: blur(10px);
+      pointer-events:none;
     }
 
     .avatar {
       width: 96px;
       height: 96px;
       border-radius: 24px;
-      background: linear-gradient(135deg, #11151C, #07080C);
-      border: 1px solid rgba(100,106,115,.28);
+      background: linear-gradient(145deg, #11151c, #07080c);
+      border: 1px solid rgba(100,106,115,.24);
       display:flex;
       align-items:center;
       justify-content:center;
       font-size: 34px;
       color: var(--accent);
       margin-bottom: 18px;
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.03),
-        0 0 0 1px rgba(184,154,94,.06),
-        0 0 24px rgba(0,0,0,.38);
       position: relative;
       overflow: hidden;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.03),
+        0 0 0 1px rgba(183,154,92,.05),
+        0 0 22px rgba(0,0,0,.34);
     }
 
     .avatar::before{
       content:"";
       position:absolute;
       inset:0;
-      background: linear-gradient(145deg, rgba(255,255,255,.05), transparent 32%, transparent 68%, rgba(255,255,255,.03));
+      background: linear-gradient(145deg, rgba(255,255,255,.05), transparent 35%, transparent 70%, rgba(255,255,255,.03));
       pointer-events:none;
     }
 
@@ -146,7 +155,7 @@
 
     .role {
       font-size: 16px;
-      color: #D9DDE3;
+      color: #d7dde4;
       margin-bottom: 18px;
     }
 
@@ -179,7 +188,7 @@
       margin-top: 8px;
       background: var(--accent);
       flex: 0 0 auto;
-      box-shadow: 0 0 0 6px rgba(184,154,94,.08);
+      box-shadow: 0 0 0 6px rgba(183,154,92,.08);
     }
 
     .cta-row {
@@ -198,10 +207,15 @@
       border-radius: 999px;
       font-size: 14px;
       font-weight: 600;
-      border: 1px solid rgba(100,106,115,.24);
-      background: linear-gradient(180deg, rgba(16,19,26,.95), rgba(10,12,17,.95));
+      border: 1px solid rgba(100,106,115,.22);
+      background: linear-gradient(180deg, rgba(16,19,25,.96), rgba(10,12,17,.96));
       color: var(--text);
-      transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease, color .22s ease, background .22s ease;
+      transition:
+        transform .22s ease,
+        border-color .22s ease,
+        box-shadow .22s ease,
+        color .22s ease,
+        background .22s ease;
       position: relative;
       overflow: hidden;
     }
@@ -210,27 +224,30 @@
       content:"";
       position:absolute;
       inset:0;
-      background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,.06) 20%, transparent 42%);
-      transform: translateX(-140%);
-      transition: transform .5s ease;
+      background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,.06) 24%, transparent 45%);
+      transform: translateX(-150%);
+      transition: transform .55s ease;
       pointer-events:none;
     }
 
     .btn:hover {
       transform: translateY(-1px);
-      border-color: rgba(184,154,94,.34);
-      box-shadow: 0 10px 24px rgba(0,0,0,.24), var(--glow);
+      border-color: rgba(183,154,92,.32);
+      box-shadow: 0 10px 24px rgba(0,0,0,.24);
     }
 
     .btn:hover::before{
-      transform: translateX(160%);
+      transform: translateX(170%);
     }
 
     .btn.primary {
-      background: linear-gradient(180deg, rgba(22,18,13,.98), rgba(12,10,8,.98));
-      color: var(--accent);
-      border-color: rgba(184,154,94,.28);
-      box-shadow: 0 8px 24px rgba(0,0,0,.24), 0 0 18px rgba(184,154,94,.06);
+      background: linear-gradient(180deg, rgba(26,21,14,.98), rgba(14,12,9,.98));
+      color: var(--accent-strong);
+      border-color: rgba(183,154,92,.28);
+      box-shadow:
+        0 8px 22px rgba(0,0,0,.22),
+        inset 0 1px 0 rgba(255,255,255,.03),
+        0 0 0 1px rgba(183,154,92,.04);
     }
 
     .content { min-width: 0; }
@@ -242,7 +259,7 @@
       margin-bottom: 24px;
       border-radius: 22px;
       padding: 14px 16px;
-      animation: fadeUp .8s ease both;
+      animation: panel-enter .8s ease both;
     }
 
     .nav {
@@ -275,11 +292,11 @@
       right:14px;
       bottom:6px;
       height:1px;
-      background: linear-gradient(90deg, transparent, rgba(184,154,94,.75), transparent);
+      background: linear-gradient(90deg, transparent, rgba(183,154,92,.8), transparent);
       transform: scaleX(0);
       transform-origin:center;
-      transition: transform .24s ease;
-      opacity:.9;
+      transition: transform .22s ease;
+      opacity: .85;
     }
 
     .nav-links a:hover {
@@ -305,36 +322,52 @@
       margin-bottom: 24px;
       position: relative;
       overflow: hidden;
-      animation: fadeUp .92s ease both;
+      animation: panel-enter .9s ease both;
+      isolation: isolate;
     }
 
     .hero::before{
       content:"";
       position:absolute;
-      inset:-20% auto auto -10%;
-      width:60%;
-      height:160%;
-      background: linear-gradient(115deg, rgba(255,255,255,.035), transparent 34%, transparent 62%, rgba(184,154,94,.025) 78%, transparent);
+      inset:-15% auto auto -18%;
+      width:62%;
+      height:170%;
+      background: linear-gradient(
+        115deg,
+        transparent 0%,
+        rgba(255,255,255,.018) 18%,
+        rgba(183,154,92,.045) 28%,
+        rgba(255,255,255,.02) 36%,
+        transparent 48%
+      );
       transform: rotate(10deg);
+      filter: blur(2px);
       pointer-events:none;
-      animation: glide 16s ease-in-out infinite;
+      animation: batsignal-sweep 14s ease-in-out infinite;
+      z-index: 0;
     }
 
     .hero::after{
       content:"";
       position:absolute;
-      right:-90px;
-      top:-90px;
-      width:260px;
-      height:260px;
-      background: radial-gradient(circle, rgba(184,154,94,.08), rgba(100,106,115,.08), transparent 66%);
+      right:-110px;
+      top:-110px;
+      width:280px;
+      height:280px;
+      background: radial-gradient(circle, rgba(183,154,92,.08), rgba(100,106,115,.06), transparent 68%);
       pointer-events:none;
-      filter: blur(6px);
-      animation: breathe 10s ease-in-out infinite;
+      filter: blur(10px);
+      animation: breathe 11s ease-in-out infinite;
+      z-index: 0;
+    }
+
+    .hero > * {
+      position: relative;
+      z-index: 1;
     }
 
     .eyebrow {
-      color: var(--accent-2);
+      color: var(--steel);
       font-family: var(--mono);
       font-size: 13px;
       margin-bottom: 16px;
@@ -350,7 +383,7 @@
 
     .hero .subtitle {
       font-size: clamp(18px, 2.6vw, 24px);
-      color: #D8DDE4;
+      color: #d9dee5;
       margin-bottom: 16px;
       font-weight: 600;
     }
@@ -372,8 +405,7 @@
     .stat {
       border-radius: 22px;
       padding: 18px;
-      background: linear-gradient(180deg, rgba(10,12,17,.98), rgba(18,22,30,.95));
-      animation: fadeUp 1.05s ease both;
+      background: linear-gradient(180deg, rgba(9,11,15,.98), rgba(17,21,28,.96));
     }
 
     .stat strong {
@@ -394,12 +426,12 @@
       border-radius: 28px;
       padding: 28px;
       margin-bottom: 24px;
-      animation: fadeUp .9s ease both;
+      animation: panel-enter .85s ease both;
     }
 
     .label {
       font-family: var(--mono);
-      color: var(--accent-2);
+      color: var(--steel);
       font-size: 13px;
       margin-bottom: 10px;
       letter-spacing: .02em;
@@ -409,6 +441,18 @@
       margin: 0 0 22px 0;
       font-size: 30px;
       letter-spacing: -.04em;
+      position: relative;
+    }
+
+    h2.section-title::after {
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-6px;
+      width:60px;
+      height:1px;
+      background: linear-gradient(90deg, rgba(183,154,92,.85), transparent);
+      opacity:.9;
     }
 
     .about-grid {
@@ -433,9 +477,9 @@
     .pill, .list span {
       padding: 10px 14px;
       border-radius: 999px;
-      background: linear-gradient(180deg, rgba(17,20,27,.92), rgba(11,13,18,.96));
-      border: 1px solid rgba(100,106,115,.22);
-      color: #DDE2E8;
+      background: linear-gradient(180deg, rgba(16,19,25,.96), rgba(10,12,17,.96));
+      border: 1px solid rgba(100,106,115,.2);
+      color: #dde2e8;
       font-size: 13px;
       font-weight: 600;
       transition: border-color .22s ease, transform .22s ease, box-shadow .22s ease;
@@ -443,7 +487,7 @@
 
     .pill:hover, .list span:hover {
       transform: translateY(-1px);
-      border-color: rgba(184,154,94,.22);
+      border-color: rgba(183,154,92,.22);
       box-shadow: 0 6px 14px rgba(0,0,0,.18);
     }
 
@@ -463,13 +507,15 @@
     .job, .card {
       border-radius: 22px;
       padding: 20px;
-      background: linear-gradient(180deg, rgba(10,12,17,.98), rgba(18,22,30,.95));
+      background: linear-gradient(180deg, rgba(9,11,15,.98), rgba(17,21,28,.96));
     }
 
     .card:hover, .job:hover, .stat:hover {
       transform: translateY(-2px);
-      border-color: rgba(184,154,94,.20);
-      box-shadow: 0 16px 36px rgba(0,0,0,.35), 0 0 0 1px rgba(184,154,94,.05);
+      border-color: rgba(183,154,92,.18);
+      box-shadow:
+        0 16px 34px rgba(0,0,0,.35),
+        0 0 0 1px rgba(183,154,92,.04);
     }
 
     .job-head {
@@ -485,10 +531,11 @@
       font-size: 21px;
       margin: 0 0 4px 0;
       letter-spacing: -.03em;
+      position: relative;
     }
 
     .job-company {
-      color: #D8DDE4;
+      color: #d8dde4;
       font-weight: 600;
     }
 
@@ -517,24 +564,25 @@
     .stack span {
       padding: 8px 12px;
       border-radius: 999px;
-      background: rgba(27,32,41,.92);
-      border: 1px solid rgba(100,106,115,.24);
-      color: #C9D0D8;
+      background: rgba(24,29,37,.96);
+      border: 1px solid rgba(100,106,115,.22);
+      color: #c7cfd8;
       font-size: 12px;
       font-weight: 600;
-      transition: border-color .22s ease, transform .22s ease;
+      transition: border-color .22s ease, transform .22s ease, color .22s ease;
     }
 
     .stack span:hover {
       transform: translateY(-1px);
-      border-color: rgba(184,154,94,.24);
-      color: #E2D4B1;
+      border-color: rgba(183,154,92,.22);
+      color: #e2d3af;
     }
 
     .card h3 {
       margin: 0 0 14px 0;
       font-size: 18px;
       letter-spacing: -.03em;
+      position: relative;
     }
 
     .list {
@@ -557,13 +605,67 @@
     }
 
     .footer {
-      color: #76808C;
+      color: #727b87;
       font-size: 13px;
       text-align:center;
       padding: 6px 0 24px;
     }
 
-    @keyframes fadeUp {
+    /* Motion */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(18px) scale(.99);
+      filter: blur(6px);
+      transition:
+        opacity .72s cubic-bezier(.2,.8,.2,1),
+        transform .72s cubic-bezier(.2,.8,.2,1),
+        filter .72s cubic-bezier(.2,.8,.2,1);
+      transition-delay: var(--reveal-delay, 0ms);
+      will-change: opacity, transform, filter;
+    }
+
+    .scroll-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+
+    .reveal-letters {
+      display: inline-block;
+      overflow: visible;
+    }
+
+    .reveal-letters .char {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(16px);
+      filter: blur(8px);
+      will-change: transform, opacity, filter;
+    }
+
+    .reveal-letters.play .char {
+      animation: char-rise .7s cubic-bezier(.2,.8,.2,1) forwards;
+      animation-delay: calc(var(--char-index) * 0.03s);
+    }
+
+    .reveal-letters.play .char.space {
+      width: 0.28em;
+    }
+
+    @keyframes char-rise {
+      0% {
+        opacity: 0;
+        transform: translateY(16px);
+        filter: blur(8px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+      }
+    }
+
+    @keyframes panel-enter {
       from {
         opacity: 0;
         transform: translateY(10px);
@@ -576,31 +678,44 @@
 
     @keyframes breathe {
       0%, 100% {
-        opacity: .75;
+        opacity: .72;
         transform: scale(1);
       }
       50% {
         opacity: 1;
-        transform: scale(1.04);
+        transform: scale(1.035);
       }
     }
 
-    @keyframes glide {
+    @keyframes batsignal-sweep {
       0%, 100% {
         transform: rotate(10deg) translateX(0);
-        opacity: .32;
+        opacity: .16;
       }
-      50% {
-        transform: rotate(10deg) translateX(18px);
-        opacity: .46;
+      45% {
+        transform: rotate(10deg) translateX(22px);
+        opacity: .28;
+      }
+      55% {
+        transform: rotate(10deg) translateX(30px);
+        opacity: .34;
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto !important; }
+
       *, *::before, *::after {
         animation: none !important;
         transition: none !important;
-        scroll-behavior: auto !important;
+      }
+
+      .scroll-reveal,
+      .scroll-reveal.is-visible,
+      .reveal-letters .char {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
       }
     }
 
@@ -685,7 +800,7 @@
           <div class="stat"><strong>Java</strong><span>Spring Boot, REST APIs, microservices, backend systems</span></div>
           <div class="stat"><strong>Angular</strong><span>TypeScript, enterprise UI, frontend integration</span></div>
           <div class="stat"><strong>AWS</strong><span>EKS, ECR, RDS, Docker, Kubernetes, Terraform</span></div>
-          <div class="stat"><strong>Microservices / API'S</strong><span>Spring Boot, Spring Cloud, REST APIs , Swagger/OpenAPI,</span></div>
+          <div class="stat"><strong>Microservices/Rest API'S</strong><span>Spring Boot, Spring Cloud, REST APIs , Swagger/OpenAPI,</span></div>
         </div>
       </section>
 
@@ -937,5 +1052,92 @@
       <div class="footer">Manish Vemulapalli · Software Engineer</div>
     </main>
   </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      function applyLetterReveal(selector) {
+        const elements = document.querySelectorAll(selector);
+
+        elements.forEach((el) => {
+          const original = el.innerHTML.replace(/<br\\s*\\/?>/gi, "\\n");
+          el.classList.add("reveal-letters");
+          el.innerHTML = "";
+
+          let charIndex = 0;
+
+          for (const ch of original) {
+            if (ch === "\\n") {
+              el.appendChild(document.createElement("br"));
+              continue;
+            }
+
+            const span = document.createElement("span");
+            span.className = "char" + (ch === " " ? " space" : "");
+            span.style.setProperty("--char-index", charIndex);
+            span.textContent = ch === " " ? "\\u00A0" : ch;
+            el.appendChild(span);
+            charIndex++;
+          }
+        });
+
+        if (!prefersReducedMotion) {
+          requestAnimationFrame(() => {
+            document.querySelectorAll(selector).forEach((el) => {
+              el.classList.add("play");
+            });
+          });
+        }
+      }
+
+      function applyScrollReveal() {
+        const targets = [
+          ".stat",
+          "section.block",
+          ".section-title",
+          ".label",
+          ".job",
+          ".card",
+          ".footer"
+        ];
+
+        const elements = document.querySelectorAll(targets.join(","));
+
+        elements.forEach((el, index) => {
+          el.classList.add("scroll-reveal");
+          const delay = el.classList.contains("stat")
+            ? Math.min(index * 28, 140)
+            : Math.min(index * 34, 180);
+          el.style.setProperty("--reveal-delay", delay + "ms");
+        });
+
+        if (prefersReducedMotion) {
+          elements.forEach((el) => el.classList.add("is-visible"));
+          return;
+        }
+
+        const observer = new IntersectionObserver(
+          (entries, obs) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                obs.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            threshold: 0.12,
+            rootMargin: "0px 0px -40px 0px"
+          }
+        );
+
+        elements.forEach((el) => observer.observe(el));
+      }
+
+      applyLetterReveal(".name, .hero h1, .hero .subtitle, .eyebrow");
+      applyScrollReveal();
+    });
+  </script>
 </body>
 </html>
