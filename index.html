@@ -1,719 +1,299 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Manish Vemulapalli — Java Full Stack Developer building scalable Spring Boot microservices, Angular applications, and cloud-ready systems." />
   <title>Manish Vemulapalli | Java Full Stack Developer</title>
-
-  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
-  <link rel="stylesheet" href="./assets/css/style.css">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
-
 <body>
-
-  <main>
-
-    <aside class="sidebar" data-sidebar>
-
-      <div class="sidebar-info">
-
-        <figure class="avatar-box">
-          <img src="./assets/images/my-avatar.png" alt="Manish Vemulapalli" width="80">
-        </figure>
-
-        <div class="info-content">
-          <h1 class="name" title="Manish Vemulapalli">Manish Vemulapalli</h1>
-          <p class="title">Java Full Stack Developer</p>
-        </div>
-
-        <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
-          <ion-icon name="chevron-down"></ion-icon>
-        </button>
-
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="#top" class="brand">MV</a>
+        <nav class="desktop-nav" aria-label="Primary">
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <a class="header-cta" href="mailto:manishvemulapalli9734@gmail.com">Email Me</a>
       </div>
+    </header>
 
-      <div class="sidebar-info_more">
+    <main id="top">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">github.com/manish31220 · Los Angeles, California</p>
+            <h1>MANISH<br>VEMULAPALLI</h1>
+            <p class="hero-role">Java Full Stack Developer</p>
+            <p class="hero-summary">
+              Java and Spring Boot engineer building scalable microservices, event-driven integrations,
+              and enterprise web applications with Angular, TypeScript, Kafka, SQL/NoSQL, AWS, Docker,
+              Kubernetes, and CI/CD workflows.
+            </p>
 
-        <div class="separator"></div>
-
-        <ul class="contacts-list">
-
-          <li class="contact-item">
-            <div class="icon-box">
-              <ion-icon name="mail-outline"></ion-icon>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="https://github.com/manish31220" target="_blank" rel="noreferrer">View GitHub</a>
+              <a class="btn btn-secondary" href="#contact">Let’s Connect</a>
             </div>
 
-            <div class="contact-info">
-              <p class="contact-title">Email</p>
-              <a href="mailto:manishvemulapalli9734@gmail.com" class="contact-link">manishvemulapalli9734@gmail.com</a>
-            </div>
-          </li>
-
-          <li class="contact-item">
-            <div class="icon-box">
-              <ion-icon name="logo-github"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">GitHub</p>
-              <a href="https://github.com/manish31220" class="contact-link" target="_blank">github.com/manish31220</a>
-            </div>
-          </li>
-
-          <li class="contact-item">
-            <div class="icon-box">
-              <ion-icon name="logo-linkedin"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">LinkedIn</p>
-              <a href="#" class="contact-link">Add your LinkedIn URL</a>
-            </div>
-          </li>
-
-          <li class="contact-item">
-            <div class="icon-box">
-              <ion-icon name="location-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Location</p>
-              <address>Los Angeles, California, USA</address>
-            </div>
-          </li>
-
-        </ul>
-
-        <div class="separator"></div>
-
-        <ul class="social-list">
-
-          <li class="social-item">
-            <a href="https://github.com/manish31220" class="social-link" target="_blank" aria-label="GitHub">
-              <ion-icon name="logo-github"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="#" class="social-link" aria-label="LinkedIn">
-              <ion-icon name="logo-linkedin"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="mailto:manishvemulapalli9734@gmail.com" class="social-link" aria-label="Email">
-              <ion-icon name="mail-outline"></ion-icon>
-            </a>
-          </li>
-
-        </ul>
-
-      </div>
-
-    </aside>
-
-    <div class="main-content">
-
-      <nav class="navbar">
-
-        <ul class="navbar-list">
-
-          <li class="navbar-item">
-            <button class="navbar-link active" data-nav-link>About</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Resume</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Portfolio</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Blog</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Contact</button>
-          </li>
-
-        </ul>
-
-      </nav>
-
-      <article class="about active" data-page="about">
-
-        <header>
-          <h2 class="h2 article-title">About me</h2>
-        </header>
-
-        <section class="about-text">
-          <p>
-            I'm Manish Vemulapalli, a Java Full Stack Developer focused on building scalable backend systems,
-            microservices, and enterprise web applications. I work primarily with Java, Spring Boot, Angular,
-            TypeScript, REST APIs, and cloud-native development practices.
-          </p>
-
-          <p>
-            My recent work has centered around production-grade services, event-driven integrations, API development,
-            distributed systems, and performance-focused engineering. I enjoy turning business requirements into clean,
-            reliable, and maintainable software that is easy to extend and operate.
-          </p>
-        </section>
-
-        <section class="service">
-
-          <h3 class="h3 service-title">What I'm doing</h3>
-
-          <ul class="service-list">
-
-            <li class="service-item">
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-dev.svg" alt="backend development icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Backend Development</h4>
-
-                <p class="service-item-text">
-                  Building robust Java and Spring Boot services, REST APIs, and microservice-based systems.
-                </p>
-              </div>
-            </li>
-
-            <li class="service-item">
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-design.svg" alt="full stack development icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Full Stack Development</h4>
-
-                <p class="service-item-text">
-                  Developing responsive applications using Angular, TypeScript, JavaScript, HTML, and CSS.
-                </p>
-              </div>
-            </li>
-
-            <li class="service-item">
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-app.svg" alt="microservices icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Microservices & APIs</h4>
-
-                <p class="service-item-text">
-                  Designing service-to-service integrations, async workflows, and API-first enterprise platforms.
-                </p>
-              </div>
-            </li>
-
-            <li class="service-item">
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-photo.svg" alt="cloud devops icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Cloud & DevOps</h4>
-
-                <p class="service-item-text">
-                  Working with AWS, Docker, Kubernetes, CI/CD pipelines, monitoring, and production support workflows.
-                </p>
-              </div>
-            </li>
-
-          </ul>
-
-        </section>
-
-      </article>
-
-      <article class="resume" data-page="resume">
-
-        <header>
-          <h2 class="h2 article-title">Resume</h2>
-        </header>
-
-        <section class="timeline">
-
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="book-outline"></ion-icon>
-            </div>
-
-            <h3 class="h3">Career Snapshot</h3>
-          </div>
-
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">Java / Spring Boot Engineering</h4>
-              <span>Backend & Distributed Systems</span>
-              <p class="timeline-text">
-                Design and development of scalable backend applications, REST APIs, microservices,
-                exception handling, validation, and performance-oriented service layers.
-              </p>
-            </li>
-
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">Cloud / DevOps / Production Support</h4>
-              <span>AWS, CI/CD, Containers, Monitoring</span>
-              <p class="timeline-text">
-                Hands-on experience with deployment workflows, Docker, Kubernetes, Jenkins, Git,
-                observability, logging, troubleshooting, and environment-based release processes.
-              </p>
-            </li>
-
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">Frontend & Integration</h4>
-              <span>Angular, TypeScript, Enterprise UI</span>
-              <p class="timeline-text">
-                Building and integrating UI layers with backend systems, API consumption, validation,
-                and business-focused user experiences across enterprise applications.
-              </p>
-            </li>
-
-          </ol>
-
-        </section>
-
-        <section class="timeline">
-
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="briefcase-outline"></ion-icon>
-            </div>
-
-            <h3 class="h3">Experience</h3>
-          </div>
-
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">Sony Pictures Entertainment</h4>
-              <span>Aug 2023 — Present</span>
-              <p class="timeline-text">
-                Working on enterprise systems and backend services with Java, Spring Boot, APIs, integrations,
-                distributed workflows, and production support across business-critical applications.
-              </p>
-            </li>
-
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">Enterprise Full Stack & Backend Development</h4>
-              <span>Prior Experience</span>
-              <p class="timeline-text">
-                Contributed to data-driven applications, business services, integration-heavy workflows,
-                and database-backed platforms using Java, web technologies, and service-oriented design.
-              </p>
-            </li>
-
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">Continuous Learning & Personal Projects</h4>
-              <span>Ongoing</span>
-              <p class="timeline-text">
-                Building portfolio work, API projects, cloud labs, and problem-solving practice in Java,
-                JavaScript, and TypeScript to stay sharp and keep improving as an engineer.
-              </p>
-            </li>
-
-          </ol>
-
-        </section>
-
-        <section class="skill">
-
-          <h3 class="h3 skills-title">My skills</h3>
-
-          <ul class="skills-list content-card">
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Java / Spring Boot</h5>
-                <data value="90">90%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 90%;"></div>
-              </div>
-            </li>
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Angular / TypeScript</h5>
-                <data value="82">82%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 82%;"></div>
-              </div>
-            </li>
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Microservices / REST APIs</h5>
-                <data value="88">88%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 88%;"></div>
-              </div>
-            </li>
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Kafka / Event-Driven Systems</h5>
-                <data value="78">78%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 78%;"></div>
-              </div>
-            </li>
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">AWS / Docker / Kubernetes</h5>
-                <data value="80">80%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 80%;"></div>
-              </div>
-            </li>
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">SQL / NoSQL / Databases</h5>
-                <data value="84">84%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 84%;"></div>
-              </div>
-            </li>
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Jenkins / Git / CI-CD</h5>
-                <data value="85">85%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 85%;"></div>
-              </div>
-            </li>
-
-          </ul>
-
-        </section>
-
-      </article>
-
-      <article class="portfolio" data-page="portfolio">
-
-        <header>
-          <h2 class="h2 article-title">Portfolio</h2>
-        </header>
-
-        <section class="projects">
-
-          <ul class="filter-list">
-
-            <li class="filter-item">
-              <button class="active" data-filter-btn>All</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Backend</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Full Stack</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>DevOps</button>
-            </li>
-
-          </ul>
-
-          <div class="filter-select-box">
-
-            <button class="filter-select" data-select>
-              <div class="select-value" data-selecct-value>Select category</div>
-
-              <div class="select-icon">
-                <ion-icon name="chevron-down"></ion-icon>
-              </div>
-            </button>
-
-            <ul class="select-list">
-
-              <li class="select-item">
-                <button data-select-item>All</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Backend</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Full Stack</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>DevOps</button>
-              </li>
-
+            <ul class="quick-contact" aria-label="Contact links">
+              <li><a href="mailto:manishvemulapalli9734@gmail.com">manishvemulapalli9734@gmail.com</a></li>
+              <li><a href="https://github.com/manish31220" target="_blank" rel="noreferrer">GitHub ↗</a></li>
+              <li><span>Java · Spring Boot · Angular · AWS</span></li>
             </ul>
-
           </div>
 
-          <ul class="project-list">
+          <aside class="hero-card" aria-label="Profile summary card">
+            <div class="avatar">MV</div>
+            <p class="card-label">Software Engineer</p>
+            <h2>Backend + Full Stack + Cloud</h2>
+            <p class="card-text">
+              Focused on resilient APIs, distributed systems, cloud deployments, production support,
+              and clean user-facing applications.
+            </p>
+            <div class="stat-grid">
+              <article>
+                <strong>5+ Years</strong>
+                <span>Software Engineering</span>
+              </article>
+              <article>
+                <strong>Spring Boot</strong>
+                <span>Microservices & APIs</span>
+              </article>
+              <article>
+                <strong>Angular</strong>
+                <span>Enterprise UI</span>
+              </article>
+              <article>
+                <strong>AWS</strong>
+                <span>Containers & CI/CD</span>
+              </article>
+            </div>
+          </aside>
+        </div>
+      </section>
 
-            <li class="project-item active" data-filter-item data-category="full stack">
-              <a href="#">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/project-1.jpg" alt="enterprise revenue platform" loading="lazy">
-                </figure>
-                <h3 class="project-title">Enterprise Revenue Platform</h3>
-                <p class="project-category">Full Stack</p>
-              </a>
-            </li>
+      <section id="about" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="section-kicker">About</p>
+            <h2>Engineer focused on reliable systems and real-world delivery.</h2>
+          </div>
 
-            <li class="project-item active" data-filter-item data-category="backend">
-              <a href="#">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/project-2.png" alt="spring boot microservices" loading="lazy">
-                </figure>
-                <h3 class="project-title">Spring Boot Microservices Suite</h3>
-                <p class="project-category">Backend</p>
-              </a>
-            </li>
-
-            <li class="project-item active" data-filter-item data-category="backend">
-              <a href="#">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/project-3.jpg" alt="openf1 lab api" loading="lazy">
-                </figure>
-                <h3 class="project-title">OpenF1-Lab API</h3>
-                <p class="project-category">Backend</p>
-              </a>
-            </li>
-
-            <li class="project-item active" data-filter-item data-category="full stack">
-              <a href="https://github.com/manish31220/portfolio" target="_blank">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/project-4.png" alt="portfolio website" loading="lazy">
-                </figure>
-                <h3 class="project-title">Portfolio Website</h3>
-                <p class="project-category">Full Stack</p>
-              </a>
-            </li>
-
-            <li class="project-item active" data-filter-item data-category="devops">
-              <a href="#">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/project-5.png" alt="aws terraform lab" loading="lazy">
-                </figure>
-                <h3 class="project-title">AWS / Terraform Lab</h3>
-                <p class="project-category">DevOps</p>
-              </a>
-            </li>
-
-            <li class="project-item active" data-filter-item data-category="backend">
-              <a href="#">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/project-6.png" alt="kafka workflow" loading="lazy">
-                </figure>
-                <h3 class="project-title">Kafka Event Workflow</h3>
-                <p class="project-category">Backend</p>
-              </a>
-            </li>
-
-          </ul>
-
-        </section>
-
-      </article>
-
-      <article class="blog" data-page="blog">
-
-        <header>
-          <h2 class="h2 article-title">Blog</h2>
-        </header>
-
-        <section class="blog-posts">
-
-          <ul class="blog-posts-list">
-
-            <li class="blog-post-item">
-              <a href="#">
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-1.jpg" alt="resilient spring boot microservices" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-                  <div class="blog-meta">
-                    <p class="blog-category">Java</p>
-                    <span class="dot"></span>
-                    <time datetime="2026-03-02">Mar 02, 2026</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Designing Resilient Spring Boot Microservices</h3>
-
-                  <p class="blog-text">
-                    Thoughts on retries, timeouts, validation, API design, and building production-ready services.
-                  </p>
-                </div>
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-2.jpg" alt="kafka event driven patterns" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-                  <div class="blog-meta">
-                    <p class="blog-category">Kafka</p>
-                    <span class="dot"></span>
-                    <time datetime="2026-03-02">Mar 02, 2026</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Async Processing with Kafka and Event-Driven Patterns</h3>
-
-                  <p class="blog-text">
-                    A practical overview of how event-based communication improves decoupling and scalability.
-                  </p>
-                </div>
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-3.jpg" alt="aws docker kubernetes" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-                  <div class="blog-meta">
-                    <p class="blog-category">Cloud</p>
-                    <span class="dot"></span>
-                    <time datetime="2026-03-02">Mar 02, 2026</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">What I'm Learning in AWS, Docker, and Kubernetes</h3>
-
-                  <p class="blog-text">
-                    Notes from hands-on cloud practice, deployment flows, and container-based environments.
-                  </p>
-                </div>
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-4.jpg" alt="typescript for problem solving" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-                  <div class="blog-meta">
-                    <p class="blog-category">TypeScript</p>
-                    <span class="dot"></span>
-                    <time datetime="2026-03-02">Mar 02, 2026</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Using TypeScript for Problem Solving and UI Development</h3>
-
-                  <p class="blog-text">
-                    A Java-first developer's perspective on clean code, types, and frontend logic with TypeScript.
-                  </p>
-                </div>
-              </a>
-            </li>
-
-          </ul>
-
-        </section>
-
-      </article>
-
-      <article class="contact" data-page="contact">
-
-        <header>
-          <h2 class="h2 article-title">Contact</h2>
-        </header>
-
-        <section class="mapbox" data-mapbox>
-          <figure>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d423286.8821748482!2d-118.74138662597373!3d34.02003923221019!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c75ddc27da13%3A0xe22fdf6f254608f4!2sLos%20Angeles%2C%20CA%2C%20USA!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
-              width="400" height="300" loading="lazy"></iframe>
-          </figure>
-        </section>
-
-        <section class="contact-form">
-
-          <h3 class="h3 form-title">Let's Connect</h3>
-
-          <p class="timeline-text" style="margin-bottom: 16px;">
-            The form below is currently a front-end demo. For now, the fastest way to reach me is by email at
-            <a href="mailto:manishvemulapalli9734@gmail.com" style="display:inline; color: hsl(45, 100%, 72%);">
-              manishvemulapalli9734@gmail.com
-            </a>.
-          </p>
-
-          <form action="#" class="form" data-form>
-
-            <div class="input-wrapper">
-              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
-              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+          <div class="about-grid">
+            <div class="panel">
+              <p>
+                I work across backend and full stack development, with a strong focus on Java,
+                Spring Boot, Angular, TypeScript, REST APIs, asynchronous workflows, and production-grade
+                engineering practices. I enjoy translating messy business requirements into clean,
+                maintainable software.
+              </p>
+              <p>
+                My recent work has involved enterprise platforms, distributed service integrations,
+                API development, troubleshooting, deployment workflows, and environment-based release support.
+                I care about clean architecture, stability, observability, and building systems that teams can actually operate.
+              </p>
             </div>
 
-            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+            <div class="highlights">
+              <article class="panel mini-card">
+                <h3>Backend Engineering</h3>
+                <p>Java, Spring Boot, REST APIs, validation, exception handling, data access, and service design.</p>
+              </article>
+              <article class="panel mini-card">
+                <h3>Full Stack Delivery</h3>
+                <p>Angular, TypeScript, JavaScript, responsive UI, and API integration for enterprise applications.</p>
+              </article>
+              <article class="panel mini-card">
+                <h3>Cloud & DevOps</h3>
+                <p>AWS, Docker, Kubernetes, Jenkins, Git workflows, deployment pipelines, and production monitoring.</p>
+              </article>
+              <article class="panel mini-card">
+                <h3>Distributed Systems</h3>
+                <p>Microservices, Kafka-style event flows, async processing, and integration-heavy architectures.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
 
-            <button class="form-btn" type="submit" disabled data-form-btn>
-              <ion-icon name="paper-plane"></ion-icon>
-              <span>Send Message</span>
-            </button>
+      <section id="experience" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="section-kicker">Experience</p>
+            <h2>Recent work and engineering focus.</h2>
+          </div>
 
-          </form>
+          <div class="timeline">
+            <article class="timeline-item panel">
+              <div class="timeline-top">
+                <h3>Sony Pictures Entertainment</h3>
+                <span>Aug 2023 — Present</span>
+              </div>
+              <p class="timeline-role">Java Developer</p>
+              <ul>
+                <li>Build and support enterprise backend services and integrations using Java, Spring Boot, REST APIs, and service-oriented patterns.</li>
+                <li>Work across production support, distributed workflows, troubleshooting, deployment activities, and environment release coordination.</li>
+                <li>Contribute to scalable business-critical applications involving microservices, integrations, data processing, and platform reliability.</li>
+              </ul>
+              <div class="chip-row">
+                <span>Java</span><span>Spring Boot</span><span>Microservices</span><span>APIs</span><span>Production Support</span>
+              </div>
+            </article>
 
-        </section>
+            <article class="timeline-item panel">
+              <div class="timeline-top">
+                <h3>Previous Enterprise Project Work</h3>
+                <span>Earlier Experience</span>
+              </div>
+              <p class="timeline-role">Full Stack / Backend Development</p>
+              <ul>
+                <li>Worked on data-driven applications and service integrations with Java, web technologies, and database-backed workflows.</li>
+                <li>Handled API integration, business logic implementation, application enhancements, and support across enterprise environments.</li>
+                <li>Gained hands-on experience in team-based development, release flows, issue resolution, and maintainable application design.</li>
+              </ul>
+              <div class="chip-row">
+                <span>Angular</span><span>TypeScript</span><span>SQL</span><span>Web Apps</span><span>Enterprise Delivery</span>
+              </div>
+            </article>
 
-      </article>
+            <article class="timeline-item panel">
+              <div class="timeline-top">
+                <h3>Personal Engineering Growth</h3>
+                <span>Ongoing</span>
+              </div>
+              <p class="timeline-role">Projects, Practice, and Upskilling</p>
+              <ul>
+                <li>Build portfolio work and engineering-focused side projects to deepen expertise in Spring Boot, APIs, cloud tooling, and TypeScript.</li>
+                <li>Continue sharpening problem-solving, system design understanding, and hands-on knowledge of modern backend and DevOps workflows.</li>
+              </ul>
+              <div class="chip-row">
+                <span>GitHub</span><span>Spring Boot</span><span>AWS</span><span>TypeScript</span><span>Learning</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
 
-    </div>
+      <section id="skills" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="section-kicker">Skills</p>
+            <h2>Core stack and tools I work with.</h2>
+          </div>
 
-  </main>
+          <div class="skills-grid">
+            <article class="panel skill-block">
+              <h3>Languages</h3>
+              <div class="chip-row">
+                <span>Java</span><span>TypeScript</span><span>JavaScript</span><span>SQL</span><span>HTML/CSS</span>
+              </div>
+            </article>
+
+            <article class="panel skill-block">
+              <h3>Frameworks</h3>
+              <div class="chip-row">
+                <span>Spring Boot</span><span>Spring MVC</span><span>Spring Data JPA</span><span>Angular</span><span>Hibernate</span>
+              </div>
+            </article>
+
+            <article class="panel skill-block">
+              <h3>Backend & Integration</h3>
+              <div class="chip-row">
+                <span>REST APIs</span><span>Microservices</span><span>Kafka</span><span>JWT</span><span>OAuth</span>
+              </div>
+            </article>
+
+            <article class="panel skill-block">
+              <h3>Cloud & DevOps</h3>
+              <div class="chip-row">
+                <span>AWS</span><span>Docker</span><span>Kubernetes</span><span>Jenkins</span><span>Git</span>
+              </div>
+            </article>
+
+            <article class="panel skill-block">
+              <h3>Data</h3>
+              <div class="chip-row">
+                <span>MySQL</span><span>MongoDB</span><span>Oracle</span><span>SQL Tuning</span><span>Data Modeling</span>
+              </div>
+            </article>
+
+            <article class="panel skill-block">
+              <h3>Engineering Practices</h3>
+              <div class="chip-row">
+                <span>CI/CD</span><span>Debugging</span><span>Code Review</span><span>Production Support</span><span>Release Management</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="section-kicker">Projects</p>
+            <h2>Selected work and portfolio direction.</h2>
+          </div>
+
+          <div class="project-grid">
+            <article class="panel project-card">
+              <p class="project-type">Backend</p>
+              <h3>OpenF1-Lab API</h3>
+              <p>
+                A Spring Boot portfolio project idea centered on motorsport data, clean API design,
+                and backend architecture practice.
+              </p>
+            </article>
+
+            <article class="panel project-card">
+              <p class="project-type">Full Stack</p>
+              <h3>Portfolio Website</h3>
+              <p>
+                A recruiter-facing GitHub Pages portfolio designed to present engineering experience,
+                skills, and projects in a clean dark-theme format.
+              </p>
+            </article>
+
+            <article class="panel project-card">
+              <p class="project-type">DevOps</p>
+              <h3>AWS / Deployment Practice</h3>
+              <p>
+                Hands-on work around deployment flows, cloud environments, containerization,
+                build pipelines, and environment-based delivery practices.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact-section">
+        <div class="container contact-grid">
+          <div>
+            <p class="section-kicker">Contact</p>
+            <h2>Let’s connect.</h2>
+            <p class="contact-copy">
+              If you're hiring for Java, backend, or full stack engineering roles, the best way to reach me is by email.
+            </p>
+          </div>
+
+          <div class="panel contact-card">
+            <a href="mailto:manishvemulapalli9734@gmail.com">manishvemulapalli9734@gmail.com</a>
+            <a href="https://github.com/manish31220" target="_blank" rel="noreferrer">github.com/manish31220 ↗</a>
+            <p>Los Angeles, California, USA</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
 
   <script src="./assets/js/script.js"></script>
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
 </body>
-
 </html>
