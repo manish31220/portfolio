@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manish Vemulapalli — Software Engineer</title>
+  <meta name="description" content="Manish Vemulapalli — Java Full Stack Developer focused on Spring Boot, Angular, microservices, Kafka, AWS, and cloud-native systems." />
+  <style>
+    :root{
+      --bg:#0b0b0f;
+      --panel:#121218;
+      --panel-2:#171720;
+      --card:#15151d;
+      --text:#f3f3f1;
+      --muted:#a6a6ad;
+      --line:#242430;
+      --accent:#d8b56a;
+      --accent-2:#f1d395;
+      --shadow:0 20px 60px rgba(0,0,0,.35);
+      --radius:22px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      background:
+        radial-gradient(circle at top right, rgba(216,181,106,.12), transparent 28%),
+        radial-gradient(circle at top left, rgba(216,181,106,.06), transparent 20%),
+        var(--bg);
+      color: var(--text);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .page {
+      width: min(1220px, calc(100% - 32px));
+      margin: 24px auto;
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 20px;
+      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .sidebar::before{
+      content:"";
+      position:absolute;
+      inset:0 auto auto 0;
+      width:100%;
+      height:140px;
+      background: linear-gradient(135deg, rgba(216,181,106,.16), transparent 65%);
+      pointer-events:none;
+    }
+
+    .avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #21212d, #16161f);
+      border: 1px solid rgba(255,255,255,.05);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size: 34px;
+      color: var(--accent);
+      margin-bottom: 18px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
+    }
+
+    .tiny {
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 13px;
+      margin-bottom: 14px;
+    }
+
+    .name {
+      font-size: 44px;
+      line-height: .92;
+      letter-spacing: -.04em;
+      margin: 0 0 12px 0;
+      font-weight: 800;
+    }
+
+    .role {
+      font-size: 16px;
+      color: #ddd7c9;
+      margin-bottom: 18px;
+    }
+
+    .summary {
+      color: var(--muted);
+      line-height: 1.72;
+      font-size: 15px;
+      margin-bottom: 22px;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+      margin: 22px 0;
+    }
+
+    .contact {
+      display:flex;
+      align-items:flex-start;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .contact .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      margin-top: 8px;
+      background: var(--accent);
+      flex: 0 0 auto;
+      box-shadow: 0 0 0 6px rgba(216,181,106,.08);
+    }
+
+    .cta-row {
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
+
+    .btn {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 8px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.02);
+      transition: .2s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); border-color: rgba(216,181,106,.4); }
+    .btn.primary {
+      background: linear-gradient(180deg, var(--accent-2), var(--accent));
+      color: #18130a;
+      border-color: transparent;
+    }
+
+    .content {
+      min-width: 0;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 20px;
+      z-index: 10;
+      margin-bottom: 24px;
+      background: rgba(18,18,24,.8);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 14px 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .nav {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links {
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .nav-links a {
+      padding: 10px 14px;
+      color: var(--muted);
+      border-radius: 999px;
+      font-size: 14px;
+      transition:.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      background: rgba(255,255,255,.03);
+    }
+
+    .nav-strong {
+      font-family: var(--mono);
+      color: var(--accent);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .hero {
+      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      right:-80px;
+      top:-80px;
+      width:240px;
+      height:240px;
+      background: radial-gradient(circle, rgba(216,181,106,.16), transparent 62%);
+      pointer-events:none;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: 13px;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      margin: 0 0 10px 0;
+      font-size: clamp(40px, 8vw, 74px);
+      line-height: .95;
+      letter-spacing: -.05em;
+    }
+
+    .hero .subtitle {
+      font-size: clamp(18px, 2.6vw, 24px);
+      color: #d7d1c2;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 880px;
+      line-height: 1.8;
+      font-size: 16px;
+      margin-bottom: 24px;
+    }
+
+    .stats {
+      display:grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 14px;
+    }
+
+    .stat {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 18px;
+    }
+
+    .stat strong {
+      display:block;
+      font-size: 28px;
+      margin-bottom: 6px;
+      color: var(--accent-2);
+      letter-spacing: -.03em;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    section.block {
+      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      margin-bottom: 24px;
+    }
+
+    .label {
+      font-family: var(--mono);
+      color: var(--accent);
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    h2.section-title {
+      margin: 0 0 22px 0;
+      font-size: 30px;
+      letter-spacing: -.04em;
+    }
+
+    .about-grid {
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+    }
+
+    .about-copy {
+      color: var(--muted);
+      line-height: 1.85;
+      font-size: 15.5px;
+    }
+
+    .pill-grid {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      align-content:flex-start;
+    }
+
+    .pill {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid var(--line);
+      color: #ddd7c9;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .timeline {
+      display:grid;
+      gap: 18px;
+    }
+
+    .job {
+      padding: 20px;
+      border-radius: 22px;
+      background: var(--card);
+      border: 1px solid var(--line);
+    }
+
+    .job-head {
+      display:flex;
+      justify-content:space-between;
+      gap: 16px;
+      align-items:flex-start;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .job-title {
+      font-size: 21px;
+      margin: 0 0 4px 0;
+      letter-spacing: -.03em;
+    }
+
+    .job-company {
+      color: #ddd7c9;
+      font-weight: 600;
+    }
+
+    .job-date {
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .bullets {
+      margin: 12px 0 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 15px;
+    }
+
+    .stack {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .stack span {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(216,181,106,.08);
+      border: 1px solid rgba(216,181,106,.14);
+      color: #e5d7b8;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .skills-grid, .cert-grid, .project-grid, .edu-grid {
+      display:grid;
+      gap: 16px;
+    }
+
+    .skills-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .cert-grid, .project-grid, .edu-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 20px;
+    }
+
+    .card h3 {
+      margin: 0 0 14px 0;
+      font-size: 18px;
+      letter-spacing: -.03em;
+    }
+
+    .list {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+    }
+
+    .list span {
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid var(--line);
+      color: #ddd7c9;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .project-card h3 { margin-bottom: 8px; }
+    .project-card p, .edu-card p, .cert-card p {
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 14.5px;
+      margin: 0 0 12px 0;
+    }
+
+    .project-links {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .project-links a {
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: #e5d7b8;
+      background: rgba(255,255,255,.02);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .contact-box {
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+    }
+
+    .footer {
+      color: #767680;
+      font-size: 13px;
+      text-align:center;
+      padding: 6px 0 24px;
+    }
+
+    @media (max-width: 1050px) {
+      .page { grid-template-columns: 1fr; }
+      .sidebar { position: relative; top: 0; }
+      .stats { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .about-grid, .contact-box { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 720px) {
+      .page { width: min(100% - 20px, 1220px); margin: 10px auto 18px; gap: 14px; }
+      .sidebar, .topbar, .hero, section.block { border-radius: 22px; padding: 20px; }
+      .name { font-size: 36px; }
+      .hero h1 { font-size: 42px; }
+      .stats, .skills-grid, .cert-grid, .project-grid, .edu-grid { grid-template-columns: 1fr; }
+      .nav { align-items:flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <aside class="sidebar">
+      <div class="avatar">MV</div>
+      <div class="tiny">// github.com/manish31220 · United States</div>
+      <h1 class="name">MANISH<br>VEMULAPALLI</h1>
+      <div class="role">Software Engineer · Java Full Stack Developer</div>
+      <div class="summary">
+        Java / Spring Boot engineer building scalable backend services, microservices, enterprise APIs,
+        Angular-based applications, and cloud-ready systems. Focused on reliable production engineering,
+        event-driven integrations, and clean software delivery.
+      </div>
+
+      <div class="contact-list">
+        <div class="contact"><span class="dot"></span><div>manishvemulapalli9734@gmail.com</div></div>
+        <div class="contact"><span class="dot"></span><div>github.com/manish31220</div></div>
+        <div class="contact"><span class="dot"></span><div>Los Angeles, California, USA</div></div>
+        <div class="contact"><span class="dot"></span><div>Open to Software Engineer / Backend / Full Stack roles</div></div>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn primary" href="https://github.com/manish31220" target="_blank" rel="noreferrer">View GitHub</a>
+        <a class="btn" href="mailto:manishvemulapalli9734@gmail.com">Email Me</a>
+      </div>
+    </aside>
+
+    <main class="content">
+      <div class="topbar">
+        <div class="nav">
+          <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#education">Education</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <div class="nav-strong">Java · Spring Boot · Angular · Kafka · AWS</div>
+        </div>
+      </div>
+
+      <section class="hero">
+        <div class="eyebrow">// software engineer</div>
+        <h1>MANISH<br>VEMULAPALLI</h1>
+        <div class="subtitle">Java Full Stack Developer · Backend / Microservices Engineer</div>
+        <p>
+          5+ years across backend engineering, enterprise APIs, distributed workflows, and full stack development.
+          Built and supported Spring Boot services, Angular applications, event-driven integrations, CI/CD pipelines,
+          and production support processes across business-critical systems.
+        </p>
+
+        <div class="stats">
+          <div class="stat"><strong>5+</strong><span>Years in software engineering and full stack delivery</span></div>
+          <div class="stat"><strong>Java</strong><span>Spring Boot, REST APIs, microservices, backend systems</span></div>
+          <div class="stat"><strong>Angular</strong><span>TypeScript, enterprise UI, frontend integration</span></div>
+          <div class="stat"><strong>AWS</strong><span>Docker, Kubernetes, CI/CD, observability, cloud workflows</span></div>
+        </div>
+      </section>
+
+      <section class="block" id="about">
+        <div class="label">// profile</div>
+        <h2 class="section-title">About</h2>
+        <div class="about-grid">
+          <div class="about-copy">
+            I’m a Java Full Stack Developer with strong hands-on experience building backend services,
+            microservices, and enterprise applications using Java, Spring Boot, Angular, TypeScript,
+            Kafka, SQL / NoSQL databases, and cloud-native tools.
+            <br><br>
+            My recent work has focused on production-grade services, API integrations, distributed systems,
+            CI/CD workflows, and supporting business-critical applications. I enjoy turning complex requirements
+            into reliable and maintainable software that teams can extend confidently.
+            <br><br>
+            I’m especially interested in backend engineering, scalable system design, cloud platforms,
+            and modern software delivery practices.
+          </div>
+          <div class="pill-grid">
+            <span class="pill">Java</span>
+            <span class="pill">Spring Boot</span>
+            <span class="pill">Angular</span>
+            <span class="pill">TypeScript</span>
+            <span class="pill">Kafka</span>
+            <span class="pill">REST APIs</span>
+            <span class="pill">Microservices</span>
+            <span class="pill">AWS</span>
+            <span class="pill">Docker</span>
+            <span class="pill">Kubernetes</span>
+            <span class="pill">Jenkins</span>
+            <span class="pill">Git</span>
+            <span class="pill">SQL</span>
+            <span class="pill">MongoDB</span>
+            <span class="pill">Oracle</span>
+            <span class="pill">CI/CD</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="block" id="experience">
+        <div class="label">// work history</div>
+        <h2 class="section-title">Experience</h2>
+        <div class="timeline">
+          <article class="job">
+            <div class="job-head">
+              <div>
+                <h3 class="job-title">Software Engineer / Java Developer</h3>
+                <div class="job-company">Sony Pictures Entertainment</div>
+              </div>
+              <div class="job-date">Aug 2023 – Present</div>
+            </div>
+            <ul class="bullets">
+              <li>Built and supported enterprise backend services and integrations using Java, Spring Boot, REST APIs, and distributed workflow patterns.</li>
+              <li>Worked on production-focused systems involving microservices, business-critical processing, API communication, and environment-based deployments.</li>
+              <li>Contributed to reliable service delivery through troubleshooting, release support, logging, monitoring, and operational ownership.</li>
+              <li>Collaborated across backend, integration, and platform workflows while maintaining clean, maintainable code for large-scale internal systems.</li>
+            </ul>
+            <div class="stack">
+              <span>Java</span><span>Spring Boot</span><span>REST APIs</span><span>Microservices</span><span>Kafka</span><span>AWS</span><span>Docker</span><span>Kubernetes</span><span>Jenkins</span><span>Git</span>
+            </div>
+          </article>
+
+          <article class="job">
+            <div class="job-head">
+              <div>
+                <h3 class="job-title">Full Stack / Backend Engineering Experience</h3>
+                <div class="job-company">Prior Enterprise Projects</div>
+              </div>
+              <div class="job-date">Earlier Experience</div>
+            </div>
+            <ul class="bullets">
+              <li>Worked on data-driven and integration-heavy applications using Java, web technologies, relational databases, and service-oriented design.</li>
+              <li>Built APIs, UI-integrated workflows, and database-backed features while supporting development, testing, and release processes.</li>
+              <li>Improved maintainability and delivery through structured coding practices, debugging, and collaboration with cross-functional teams.</li>
+            </ul>
+            <div class="stack">
+              <span>Angular</span><span>TypeScript</span><span>SQL</span><span>MongoDB</span><span>Oracle</span><span>Spring</span><span>HTML/CSS</span><span>JavaScript</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="block" id="skills">
+        <div class="label">// tech stack</div>
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-grid">
+          <div class="card">
+            <h3>Languages</h3>
+            <div class="list">
+              <span>Java</span><span>TypeScript</span><span>JavaScript</span><span>SQL</span><span>HTML / CSS</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Frameworks</h3>
+            <div class="list">
+              <span>Spring Boot</span><span>Spring</span><span>Spring Data JPA</span><span>Spring Security</span><span>Angular</span><span>Hibernate</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Cloud & DevOps</h3>
+            <div class="list">
+              <span>AWS</span><span>Docker</span><span>Kubernetes</span><span>Jenkins</span><span>GitHub Actions</span><span>Terraform</span><span>Git</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Messaging & APIs</h3>
+            <div class="list">
+              <span>Kafka</span><span>REST APIs</span><span>OAuth</span><span>JWT</span><span>Swagger / OpenAPI</span><span>JSON</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Databases</h3>
+            <div class="list">
+              <span>MySQL</span><span>MongoDB</span><span>Oracle</span><span>MarkLogic</span><span>NoSQL</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Engineering Focus</h3>
+            <div class="list">
+              <span>Microservices</span><span>Distributed Systems</span><span>CI/CD</span><span>Production Support</span><span>Performance Tuning</span><span>Debugging</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="block" id="projects">
+        <div class="label">// selected work</div>
+        <h2 class="section-title">Projects</h2>
+        <div class="project-grid">
+          <div class="card project-card">
+            <h3>Portfolio Website</h3>
+            <p>
+              Personal portfolio hosted on GitHub Pages with a dark single-page layout, engineer-focused content,
+              recruiter-friendly sections, and clean responsive design.
+            </p>
+            <div class="project-links">
+              <a href="https://manish31220.github.io/portfolio/" target="_blank" rel="noreferrer">Live Site</a>
+              <a href="https://github.com/manish31220/portfolio" target="_blank" rel="noreferrer">Repository</a>
+            </div>
+          </div>
+
+          <div class="card project-card">
+            <h3>OpenF1-Lab API</h3>
+            <p>
+              Backend API concept around Formula 1 telemetry and session data, focused on Spring Boot endpoints,
+              external API integration, and clean service design.
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/manish31220" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+          </div>
+
+          <div class="card project-card">
+            <h3>Spring Boot Microservices Practice</h3>
+            <p>
+              Hands-on backend practice around service layering, controllers, repositories, database integration,
+              validation, and production-style application structure.
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/manish31220" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+          </div>
+
+          <div class="card project-card">
+            <h3>AWS / Terraform / DevOps Labs</h3>
+            <p>
+              Ongoing cloud and DevOps learning focused on AWS services, CI/CD pipelines, infrastructure-as-code,
+              container workflows, and deployment automation concepts.
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/manish31220" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="block" id="education">
+        <div class="label">// academic background</div>
+        <h2 class="section-title">Education</h2>
+        <div class="edu-grid">
+          <div class="card edu-card">
+            <h3>Master's Degree</h3>
+            <p>Graduate-level academic background in computing / engineering-related study, supporting software development and systems thinking.</p>
+          </div>
+          <div class="card edu-card">
+            <h3>Engineering Foundation</h3>
+            <p>Strong foundation in programming, databases, software engineering, application architecture, and problem solving.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="block" id="contact">
+        <div class="label">// let's connect</div>
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-box">
+          <div class="card">
+            <h3>Reach out</h3>
+            <p style="color:var(--muted); line-height:1.8; margin:0 0 14px 0;">
+              The fastest way to reach me is by email. If you're hiring for Java, backend, microservices,
+              or full stack roles, feel free to contact me.
+            </p>
+            <div class="project-links">
+              <a href="mailto:manishvemulapalli9734@gmail.com">Email</a>
+              <a href="https://github.com/manish31220" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Looking for</h3>
+            <p style="color:var(--muted); line-height:1.8; margin:0;">
+              Software Engineer · Backend Engineer · Java Developer · Full Stack Engineer ·
+              Spring Boot / Angular opportunities
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="footer">Manish Vemulapalli · Software Engineer</div>
+    </main>
+  </div>
+</body>
+</html>
