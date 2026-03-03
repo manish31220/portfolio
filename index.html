@@ -55,15 +55,15 @@
     a { color: inherit; text-decoration: none; }
 
     .page {
-      position: relative;
-      z-index: 1;
-      width: min(1220px, calc(100% - 32px));
-      margin: 24px auto;
-      display: grid;
-      grid-template-columns: 320px 1fr;
-      gap: 24px;
-      align-items: start;
-    }
+  position: relative;
+  z-index: 1;
+  width: min(1220px, calc(100% - 32px));
+  margin: 24px auto;
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 24px;
+  align-items: start;
+}
 
     .sidebar, .topbar, .hero, section.block, .card, .job, .stat {
       border: 1px solid rgba(100,106,115,.18);
@@ -145,14 +145,15 @@
       margin-bottom: 14px;
     }
 
-    .name {
-      font-size: 44px;
-      line-height: .92;
-      letter-spacing: -.04em;
-      margin: 0 0 12px 0;
-      font-weight: 800;
-    }
-
+   .name {
+  font-size: 36px;
+  line-height: .92;
+  letter-spacing: -.05em;
+  margin: 0 0 12px 0;
+  font-weight: 800;
+  white-space: nowrap;
+  display: inline-block;
+}
     .role {
       font-size: 16px;
       color: #d7dde4;
@@ -316,15 +317,14 @@
       opacity: .9;
     }
 
-    .hero {
-      border-radius: 30px;
-      padding: 30px;
-      margin-bottom: 24px;
-      position: relative;
-      overflow: hidden;
-      animation: panel-enter .9s ease both;
-      isolation: isolate;
-    }
+    .hero h1 {
+  margin: 0 0 10px 0;
+  font-size: clamp(44px, 7vw, 74px);
+  line-height: .92;
+  letter-spacing: -.05em;
+  white-space: nowrap;
+  display: inline-block;
+}
 
     .hero::before{
       content:"";
@@ -613,16 +613,16 @@
 
     /* Motion */
     .scroll-reveal {
-      opacity: 0;
-      transform: translateY(18px) scale(.99);
-      filter: blur(6px);
-      transition:
-        opacity .72s cubic-bezier(.2,.8,.2,1),
-        transform .72s cubic-bezier(.2,.8,.2,1),
-        filter .72s cubic-bezier(.2,.8,.2,1);
-      transition-delay: var(--reveal-delay, 0ms);
-      will-change: opacity, transform, filter;
-    }
+  opacity: 0;
+  transform: translateY(12px) scale(.995);
+  filter: blur(3px);
+  transition:
+    opacity .42s cubic-bezier(.2,.8,.2,1),
+    transform .42s cubic-bezier(.2,.8,.2,1),
+    filter .42s cubic-bezier(.2,.8,.2,1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform, filter;
+}
 
     .scroll-reveal.is-visible {
       opacity: 1;
@@ -737,8 +737,8 @@
         padding: 20px;
       }
 
-      .name { font-size: 36px; }
-      .hero h1 { font-size: 42px; }
+      .name { font-size: 32px; }
+      .hero h1 { font-size: 40px; }
       .stats, .skills-grid, .project-grid, .edu-grid { grid-template-columns: 1fr; }
       .nav { align-items:flex-start; }
     }
@@ -1106,9 +1106,9 @@
 
       elements.forEach((el, index) => {
         el.classList.add("scroll-reveal");
-        const delay = el.classList.contains("stat")
-          ? Math.min(index * 28, 140)
-          : Math.min(index * 34, 180);
+       const delay = el.classList.contains("stat")
+  ? Math.min(index * 14, 70)
+  : Math.min(index * 18, 90);
         el.style.setProperty("--reveal-delay", delay + "ms");
       });
 
