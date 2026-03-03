@@ -8,8 +8,6 @@
   <style>
     :root{
       --bg:#0b0b0f;
-      --panel:#121218;
-      --panel-2:#171720;
       --card:#15151d;
       --text:#f3f3f1;
       --muted:#a6a6ad;
@@ -17,11 +15,9 @@
       --accent:#d8b56a;
       --accent-2:#f1d395;
       --shadow:0 20px 60px rgba(0,0,0,.35);
-      --radius:22px;
       --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
       --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
-
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
@@ -33,10 +29,7 @@
         var(--bg);
       color: var(--text);
     }
-
     a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-
     .page {
       width: min(1220px, calc(100% - 32px));
       margin: 24px auto;
@@ -45,18 +38,18 @@
       gap: 24px;
       align-items: start;
     }
-
+    .sidebar, .topbar, .hero, section.block, .card, .job, .stat {
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+    }
     .sidebar {
       position: sticky;
       top: 20px;
-      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
-      border: 1px solid var(--line);
       border-radius: 28px;
       padding: 26px;
-      box-shadow: var(--shadow);
       overflow: hidden;
     }
-
     .sidebar::before{
       content:"";
       position:absolute;
@@ -66,7 +59,6 @@
       background: linear-gradient(135deg, rgba(216,181,106,.16), transparent 65%);
       pointer-events:none;
     }
-
     .avatar {
       width: 96px;
       height: 96px;
@@ -79,16 +71,13 @@
       font-size: 34px;
       color: var(--accent);
       margin-bottom: 18px;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
     }
-
     .tiny {
       color: var(--muted);
       font-family: var(--mono);
       font-size: 13px;
       margin-bottom: 14px;
     }
-
     .name {
       font-size: 44px;
       line-height: .92;
@@ -96,405 +85,99 @@
       margin: 0 0 12px 0;
       font-weight: 800;
     }
-
-    .role {
-      font-size: 16px;
-      color: #ddd7c9;
-      margin-bottom: 18px;
-    }
-
-    .summary {
-      color: var(--muted);
-      line-height: 1.72;
-      font-size: 15px;
-      margin-bottom: 22px;
-    }
-
-    .contact-list {
-      display: grid;
-      gap: 12px;
-      margin: 22px 0;
-    }
-
-    .contact {
-      display:flex;
-      align-items:flex-start;
-      gap: 10px;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.5;
-    }
-
+    .role { font-size: 16px; color: #ddd7c9; margin-bottom: 18px; }
+    .summary { color: var(--muted); line-height: 1.72; font-size: 15px; margin-bottom: 22px; }
+    .contact-list { display: grid; gap: 12px; margin: 22px 0; }
+    .contact { display:flex; align-items:flex-start; gap: 10px; color: var(--muted); font-size: 14px; line-height: 1.5; }
     .contact .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      margin-top: 8px;
-      background: var(--accent);
-      flex: 0 0 auto;
-      box-shadow: 0 0 0 6px rgba(216,181,106,.08);
+      width: 8px; height: 8px; border-radius: 999px; margin-top: 8px;
+      background: var(--accent); flex: 0 0 auto; box-shadow: 0 0 0 6px rgba(216,181,106,.08);
     }
-
-    .cta-row {
-      display:flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 22px;
-    }
-
+    .cta-row { display:flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
     .btn {
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap: 8px;
-      padding: 12px 16px;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 600;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.02);
-      transition: .2s ease;
+      display:inline-flex; align-items:center; justify-content:center; gap: 8px;
+      padding: 12px 16px; border-radius: 999px; font-size: 14px; font-weight: 600;
+      border: 1px solid var(--line); background: rgba(255,255,255,.02); transition: .2s ease;
     }
-
-    .btn:hover { transform: translateY(-1px); border-color: rgba(216,181,106,.4); }
     .btn.primary {
       background: linear-gradient(180deg, var(--accent-2), var(--accent));
-      color: #18130a;
-      border-color: transparent;
+      color: #18130a; border-color: transparent;
     }
-
-    .content {
-      min-width: 0;
-    }
-
+    .content { min-width: 0; }
     .topbar {
-      position: sticky;
-      top: 20px;
-      z-index: 10;
-      margin-bottom: 24px;
-      background: rgba(18,18,24,.8);
-      backdrop-filter: blur(12px);
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      padding: 14px 16px;
-      box-shadow: var(--shadow);
+      position: sticky; top: 20px; z-index: 10; margin-bottom: 24px;
+      backdrop-filter: blur(12px); border-radius: 22px; padding: 14px 16px;
     }
-
     .nav {
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 16px;
-      flex-wrap: wrap;
+      display:flex; align-items:center; justify-content:space-between; gap: 16px; flex-wrap: wrap;
     }
-
-    .nav-links {
-      display:flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
+    .nav-links { display:flex; flex-wrap: wrap; gap: 10px; }
     .nav-links a {
-      padding: 10px 14px;
-      color: var(--muted);
-      border-radius: 999px;
-      font-size: 14px;
-      transition:.2s ease;
+      padding: 10px 14px; color: var(--muted); border-radius: 999px; font-size: 14px; transition:.2s ease;
     }
-
-    .nav-links a:hover {
-      color: var(--text);
-      background: rgba(255,255,255,.03);
-    }
-
-    .nav-strong {
-      font-family: var(--mono);
-      color: var(--accent);
-      font-size: 13px;
-      white-space: nowrap;
-    }
-
+    .nav-links a:hover { color: var(--text); background: rgba(255,255,255,.03); }
+    .nav-strong { font-family: var(--mono); color: var(--accent); font-size: 13px; white-space: nowrap; }
     .hero {
-      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
-      border: 1px solid var(--line);
-      border-radius: 30px;
-      padding: 30px;
-      box-shadow: var(--shadow);
-      margin-bottom: 24px;
-      position: relative;
-      overflow: hidden;
+      border-radius: 30px; padding: 30px; margin-bottom: 24px; position: relative; overflow: hidden;
     }
-
     .hero::after{
-      content:"";
-      position:absolute;
-      right:-80px;
-      top:-80px;
-      width:240px;
-      height:240px;
+      content:""; position:absolute; right:-80px; top:-80px; width:240px; height:240px;
       background: radial-gradient(circle, rgba(216,181,106,.16), transparent 62%);
       pointer-events:none;
     }
-
-    .eyebrow {
-      color: var(--accent);
-      font-family: var(--mono);
-      font-size: 13px;
-      margin-bottom: 16px;
+    .eyebrow { color: var(--accent); font-family: var(--mono); font-size: 13px; margin-bottom: 16px; }
+    .hero h1 { margin: 0 0 10px 0; font-size: clamp(40px, 8vw, 74px); line-height: .95; letter-spacing: -.05em; }
+    .hero .subtitle { font-size: clamp(18px, 2.6vw, 24px); color: #d7d1c2; margin-bottom: 16px; font-weight: 600; }
+    .hero p { color: var(--muted); max-width: 880px; line-height: 1.8; font-size: 16px; margin-bottom: 24px; }
+    .stats { display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 14px; }
+    .stat { border-radius: 22px; padding: 18px; background: var(--card); }
+    .stat strong { display:block; font-size: 28px; margin-bottom: 6px; color: var(--accent-2); letter-spacing: -.03em; }
+    .stat span { color: var(--muted); font-size: 14px; line-height: 1.5; }
+    section.block { border-radius: 28px; padding: 28px; margin-bottom: 24px; }
+    .label { font-family: var(--mono); color: var(--accent); font-size: 13px; margin-bottom: 10px; }
+    h2.section-title { margin: 0 0 22px 0; font-size: 30px; letter-spacing: -.04em; }
+    .about-grid { display:grid; grid-template-columns: 1.2fr .8fr; gap: 18px; }
+    .about-copy { color: var(--muted); line-height: 1.85; font-size: 15.5px; }
+    .pill-grid { display:flex; flex-wrap:wrap; gap: 10px; align-content:flex-start; }
+    .pill, .list span, .stack span {
+      padding: 10px 14px; border-radius: 999px; background: rgba(255,255,255,.03);
+      border: 1px solid var(--line); color: #ddd7c9; font-size: 13px; font-weight: 600;
     }
-
-    .hero h1 {
-      margin: 0 0 10px 0;
-      font-size: clamp(40px, 8vw, 74px);
-      line-height: .95;
-      letter-spacing: -.05em;
-    }
-
-    .hero .subtitle {
-      font-size: clamp(18px, 2.6vw, 24px);
-      color: #d7d1c2;
-      margin-bottom: 16px;
-      font-weight: 600;
-    }
-
-    .hero p {
-      color: var(--muted);
-      max-width: 880px;
-      line-height: 1.8;
-      font-size: 16px;
-      margin-bottom: 24px;
-    }
-
-    .stats {
-      display:grid;
-      grid-template-columns: repeat(4, minmax(0,1fr));
-      gap: 14px;
-    }
-
-    .stat {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      padding: 18px;
-    }
-
-    .stat strong {
-      display:block;
-      font-size: 28px;
-      margin-bottom: 6px;
-      color: var(--accent-2);
-      letter-spacing: -.03em;
-    }
-
-    .stat span {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.5;
-    }
-
-    section.block {
-      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      padding: 28px;
-      box-shadow: var(--shadow);
-      margin-bottom: 24px;
-    }
-
-    .label {
-      font-family: var(--mono);
-      color: var(--accent);
-      font-size: 13px;
-      margin-bottom: 10px;
-    }
-
-    h2.section-title {
-      margin: 0 0 22px 0;
-      font-size: 30px;
-      letter-spacing: -.04em;
-    }
-
-    .about-grid {
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 18px;
-    }
-
-    .about-copy {
-      color: var(--muted);
-      line-height: 1.85;
-      font-size: 15.5px;
-    }
-
-    .pill-grid {
-      display:flex;
-      flex-wrap:wrap;
-      gap: 10px;
-      align-content:flex-start;
-    }
-
-    .pill {
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.03);
-      border: 1px solid var(--line);
-      color: #ddd7c9;
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    .timeline {
-      display:grid;
-      gap: 18px;
-    }
-
-    .job {
-      padding: 20px;
-      border-radius: 22px;
-      background: var(--card);
-      border: 1px solid var(--line);
-    }
-
-    .job-head {
-      display:flex;
-      justify-content:space-between;
-      gap: 16px;
-      align-items:flex-start;
-      margin-bottom: 10px;
-      flex-wrap: wrap;
-    }
-
-    .job-title {
-      font-size: 21px;
-      margin: 0 0 4px 0;
-      letter-spacing: -.03em;
-    }
-
-    .job-company {
-      color: #ddd7c9;
-      font-weight: 600;
-    }
-
-    .job-date {
-      color: var(--accent);
-      font-family: var(--mono);
-      font-size: 13px;
-      white-space: nowrap;
-    }
-
-    .bullets {
-      margin: 12px 0 0 0;
-      padding-left: 18px;
-      color: var(--muted);
-      line-height: 1.8;
-      font-size: 15px;
-    }
-
-    .stack {
-      display:flex;
-      flex-wrap:wrap;
-      gap: 8px;
-      margin-top: 14px;
-    }
-
-    .stack span {
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(216,181,106,.08);
-      border: 1px solid rgba(216,181,106,.14);
-      color: #e5d7b8;
-      font-size: 12px;
-      font-weight: 600;
-    }
-
-    .skills-grid, .cert-grid, .project-grid, .edu-grid {
-      display:grid;
-      gap: 16px;
-    }
-
+    .timeline, .skills-grid, .project-grid, .edu-grid { display:grid; gap: 16px; }
     .skills-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
-    .cert-grid, .project-grid, .edu-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      padding: 20px;
+    .project-grid, .edu-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .job, .card { border-radius: 22px; padding: 20px; background: var(--card); }
+    .job-head {
+      display:flex; justify-content:space-between; gap: 16px; align-items:flex-start; margin-bottom: 10px; flex-wrap: wrap;
     }
-
-    .card h3 {
-      margin: 0 0 14px 0;
-      font-size: 18px;
-      letter-spacing: -.03em;
+    .job-title { font-size: 21px; margin: 0 0 4px 0; letter-spacing: -.03em; }
+    .job-company { color: #ddd7c9; font-weight: 600; }
+    .job-date { color: var(--accent); font-family: var(--mono); font-size: 13px; white-space: nowrap; }
+    .bullets { margin: 12px 0 0 0; padding-left: 18px; color: var(--muted); line-height: 1.8; font-size: 15px; }
+    .stack { display:flex; flex-wrap:wrap; gap: 8px; margin-top: 14px; }
+    .stack span {
+      padding: 8px 12px; background: rgba(216,181,106,.08);
+      border: 1px solid rgba(216,181,106,.14); color: #e5d7b8; font-size: 12px;
     }
-
-    .list {
-      display:flex;
-      flex-wrap:wrap;
-      gap: 10px;
+    .card h3 { margin: 0 0 14px 0; font-size: 18px; letter-spacing: -.03em; }
+    .list { display:flex; flex-wrap:wrap; gap: 10px; }
+    .project-card p, .edu-card p {
+      color: var(--muted); line-height: 1.75; font-size: 14.5px; margin: 0;
     }
-
-    .list span {
-      padding: 9px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.03);
-      border: 1px solid var(--line);
-      color: #ddd7c9;
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    .project-card h3 { margin-bottom: 8px; }
-    .project-card p, .edu-card p, .cert-card p {
-      color: var(--muted);
-      line-height: 1.75;
-      font-size: 14.5px;
-      margin: 0 0 12px 0;
-    }
-
-    .project-links {
-      display:flex;
-      flex-wrap:wrap;
-      gap: 10px;
-      margin-top: 6px;
-    }
-
-    .project-links a {
-      padding: 10px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      color: #e5d7b8;
-      background: rgba(255,255,255,.02);
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    .contact-box {
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 18px;
-    }
-
-    .footer {
-      color: #767680;
-      font-size: 13px;
-      text-align:center;
-      padding: 6px 0 24px;
-    }
-
+    .contact-box { display:grid; grid-template-columns: 1.1fr .9fr; gap: 18px; }
+    .footer { color: #767680; font-size: 13px; text-align:center; padding: 6px 0 24px; }
     @media (max-width: 1050px) {
       .page { grid-template-columns: 1fr; }
       .sidebar { position: relative; top: 0; }
       .stats { grid-template-columns: repeat(2, minmax(0,1fr)); }
       .about-grid, .contact-box { grid-template-columns: 1fr; }
     }
-
     @media (max-width: 720px) {
       .page { width: min(100% - 20px, 1220px); margin: 10px auto 18px; gap: 14px; }
       .sidebar, .topbar, .hero, section.block { border-radius: 22px; padding: 20px; }
       .name { font-size: 36px; }
       .hero h1 { font-size: 42px; }
-      .stats, .skills-grid, .cert-grid, .project-grid, .edu-grid { grid-template-columns: 1fr; }
+      .stats, .skills-grid, .project-grid, .edu-grid { grid-template-columns: 1fr; }
       .nav { align-items:flex-start; }
     }
   </style>
@@ -554,7 +237,7 @@
           <div class="stat"><strong>5+</strong><span>Years in software engineering and full stack delivery</span></div>
           <div class="stat"><strong>Java</strong><span>Spring Boot, REST APIs, microservices, backend systems</span></div>
           <div class="stat"><strong>Angular</strong><span>TypeScript, enterprise UI, frontend integration</span></div>
-          <div class="stat"><strong>AWS</strong><span>Docker, Kubernetes, CI/CD, observability, cloud workflows</span></div>
+          <div class="stat"><strong>AWS</strong><span>EKS, ECR, RDS, Docker, Kubernetes, Terraform</span></div>
         </div>
       </section>
 
@@ -577,20 +260,20 @@
           <div class="pill-grid">
             <span class="pill">Java</span>
             <span class="pill">Spring Boot</span>
+            <span class="pill">Spring Cloud</span>
             <span class="pill">Angular</span>
             <span class="pill">TypeScript</span>
-            <span class="pill">Kafka</span>
+            <span class="pill">Apache Kafka</span>
             <span class="pill">REST APIs</span>
             <span class="pill">Microservices</span>
+            <span class="pill">Resilience4j</span>
+            <span class="pill">Eureka</span>
+            <span class="pill">Zuul</span>
             <span class="pill">AWS</span>
             <span class="pill">Docker</span>
             <span class="pill">Kubernetes</span>
-            <span class="pill">Jenkins</span>
-            <span class="pill">Git</span>
-            <span class="pill">SQL</span>
-            <span class="pill">MongoDB</span>
-            <span class="pill">Oracle</span>
-            <span class="pill">CI/CD</span>
+            <span class="pill">Terraform</span>
+            <span class="pill">Splunk</span>
           </div>
         </div>
       </section>
@@ -608,13 +291,13 @@
               <div class="job-date">Aug 2023 – Present</div>
             </div>
             <ul class="bullets">
-              <li>Built and supported enterprise backend services and integrations using Java, Spring Boot, REST APIs, and distributed workflow patterns.</li>
-              <li>Worked on production-focused systems involving microservices, business-critical processing, API communication, and environment-based deployments.</li>
-              <li>Contributed to reliable service delivery through troubleshooting, release support, logging, monitoring, and operational ownership.</li>
-              <li>Collaborated across backend, integration, and platform workflows while maintaining clean, maintainable code for large-scale internal systems.</li>
+              <li>Built services powering KPI reporting, dashboards, and near real-time tracking by designing REST endpoints and data models that support insight workflows.</li>
+              <li>Normalized multi-source datasets for downstream reporting and implemented reusable validation and transformation utilities for consistency.</li>
+              <li>Strengthened reliability with Resilience4j, service discovery through Eureka, and gateway routing using Zuul / Spring Cloud Gateway to keep systems stable during dependency degradation.</li>
+              <li>Improved observability and incident readiness through dashboards, alerts, and operational runbooks using Splunk, New Relic, and AWS CloudWatch.</li>
             </ul>
             <div class="stack">
-              <span>Java</span><span>Spring Boot</span><span>REST APIs</span><span>Microservices</span><span>Kafka</span><span>AWS</span><span>Docker</span><span>Kubernetes</span><span>Jenkins</span><span>Git</span>
+              <span>Java</span><span>Spring Boot</span><span>Spring Cloud</span><span>REST APIs</span><span>Swagger / OpenAPI</span><span>Apache Kafka</span><span>Resilience4j</span><span>Eureka</span><span>Zuul</span><span>AWS</span>
             </div>
           </article>
 
@@ -632,7 +315,7 @@
               <li>Improved maintainability and delivery through structured coding practices, debugging, and collaboration with cross-functional teams.</li>
             </ul>
             <div class="stack">
-              <span>Angular</span><span>TypeScript</span><span>SQL</span><span>MongoDB</span><span>Oracle</span><span>Spring</span><span>HTML/CSS</span><span>JavaScript</span>
+              <span>Angular</span><span>TypeScript</span><span>SQL</span><span>MongoDB</span><span>MarkLogic</span><span>Maven</span><span>JIRA</span><span>Confluence</span>
             </div>
           </article>
         </div>
@@ -645,89 +328,85 @@
           <div class="card">
             <h3>Languages</h3>
             <div class="list">
-              <span>Java</span><span>TypeScript</span><span>JavaScript</span><span>SQL</span><span>HTML / CSS</span>
+              <span>Java</span><span>SQL</span><span>JavaScript</span><span>TypeScript</span>
             </div>
           </div>
           <div class="card">
             <h3>Frameworks</h3>
             <div class="list">
-              <span>Spring Boot</span><span>Spring</span><span>Spring Data JPA</span><span>Spring Security</span><span>Angular</span><span>Hibernate</span>
+              <span>Spring Boot</span><span>Spring Cloud</span><span>REST APIs</span><span>Swagger / OpenAPI</span><span>Apache Kafka</span>
             </div>
           </div>
           <div class="card">
-            <h3>Cloud & DevOps</h3>
+            <h3>Architecture</h3>
             <div class="list">
-              <span>AWS</span><span>Docker</span><span>Kubernetes</span><span>Jenkins</span><span>GitHub Actions</span><span>Terraform</span><span>Git</span>
+              <span>Microservices</span><span>Resilience4j</span><span>Eureka</span><span>Zuul / Spring Cloud Gateway</span><span>Feature Toggles</span>
             </div>
           </div>
           <div class="card">
-            <h3>Messaging & APIs</h3>
+            <h3>Data</h3>
             <div class="list">
-              <span>Kafka</span><span>REST APIs</span><span>OAuth</span><span>JWT</span><span>Swagger / OpenAPI</span><span>JSON</span>
+              <span>MySQL</span><span>MongoDB</span><span>MarkLogic</span>
             </div>
           </div>
           <div class="card">
-            <h3>Databases</h3>
+            <h3>CI/CD & Tools</h3>
             <div class="list">
-              <span>MySQL</span><span>MongoDB</span><span>Oracle</span><span>MarkLogic</span><span>NoSQL</span>
+              <span>Jenkins</span><span>Git</span><span>JIRA</span><span>Confluence</span><span>Maven</span>
             </div>
           </div>
           <div class="card">
-            <h3>Engineering Focus</h3>
+            <h3>Cloud / DevOps</h3>
             <div class="list">
-              <span>Microservices</span><span>Distributed Systems</span><span>CI/CD</span><span>Production Support</span><span>Performance Tuning</span><span>Debugging</span>
+              <span>AWS (EKS, ECR, RDS, VPC, IAM, CloudWatch)</span><span>Docker</span><span>Kubernetes</span><span>Terraform</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Observability</h3>
+            <div class="list">
+              <span>Splunk</span><span>New Relic</span><span>AWS CloudWatch (logs / metrics / alarms)</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Platforms</h3>
+            <div class="list">
+              <span>GitHub Copilot</span><span>Claude (Anthropic)</span><span>Seismic LiveDocs</span>
             </div>
           </div>
         </div>
       </section>
 
       <section class="block" id="projects">
-        <div class="label">// selected work</div>
-        <h2 class="section-title">Projects</h2>
+        <div class="label">// selected systems</div>
+        <h2 class="section-title">Projects & Systems Built</h2>
         <div class="project-grid">
           <div class="card project-card">
-            <h3>Portfolio Website</h3>
+            <h3>Client Productivity + Analytics Enablement</h3>
             <p>
-              Personal portfolio hosted on GitHub Pages with a dark single-page layout, engineer-focused content,
-              recruiter-friendly sections, and clean responsive design.
+              Services powering KPI reporting, dashboards, and near real-time tracking; designed REST endpoints
+              and data models that support insight workflows.
             </p>
-            <div class="project-links">
-              <a href="https://manish31220.github.io/portfolio/" target="_blank" rel="noreferrer">Live Site</a>
-              <a href="https://github.com/manish31220/portfolio" target="_blank" rel="noreferrer">Repository</a>
-            </div>
           </div>
-
           <div class="card project-card">
-            <h3>OpenF1-Lab API</h3>
+            <h3>Data + Workflow Integrations</h3>
             <p>
-              Backend API concept around Formula 1 telemetry and session data, focused on Spring Boot endpoints,
-              external API integration, and clean service design.
+              Normalized multi-source datasets for downstream reporting; implemented reusable validation and
+              transformation utilities for consistency.
             </p>
-            <div class="project-links">
-              <a href="https://github.com/manish31220" target="_blank" rel="noreferrer">GitHub</a>
-            </div>
           </div>
-
           <div class="card project-card">
-            <h3>Spring Boot Microservices Practice</h3>
+            <h3>Resilient Microservices Platform</h3>
             <p>
-              Hands-on backend practice around service layering, controllers, repositories, database integration,
-              validation, and production-style application structure.
+              Reliability patterns with Resilience4j, service discovery via Eureka, and gateway routing through
+              Zuul / Spring Cloud Gateway to keep systems stable during dependency degradation.
             </p>
-            <div class="project-links">
-              <a href="https://github.com/manish31220" target="_blank" rel="noreferrer">GitHub</a>
-            </div>
           </div>
-
           <div class="card project-card">
-            <h3>AWS / Terraform / DevOps Labs</h3>
+            <h3>Observability & Incident Readiness</h3>
             <p>
-              Ongoing cloud and DevOps learning focused on AWS services, CI/CD pipelines, infrastructure-as-code,
-              container workflows, and deployment automation concepts.
+              Dashboards, alerts, and operational runbooks using Splunk, New Relic, and CloudWatch to improve
+              detection, triage, and response readiness.
             </p>
-            <div class="project-links">
-              <a href="https://github.com/manish31220" target="_blank" rel="noreferrer">GitHub</a>
-            </div>
           </div>
         </div>
       </section>
@@ -757,9 +436,9 @@
               The fastest way to reach me is by email. If you're hiring for Java, backend, microservices,
               or full stack roles, feel free to contact me.
             </p>
-            <div class="project-links">
-              <a href="mailto:manishvemulapalli9734@gmail.com">Email</a>
-              <a href="https://github.com/manish31220" target="_blank" rel="noreferrer">GitHub</a>
+            <div class="list">
+              <span>manishvemulapalli9734@gmail.com</span>
+              <span>github.com/manish31220</span>
             </div>
           </div>
           <div class="card">
