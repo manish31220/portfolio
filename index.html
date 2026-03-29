@@ -1,1147 +1,507 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Manish — Software Engineer</title>
-  <meta name="description" content="Manish Vemulapalli — Java Full Stack Developer focused on Spring Boot, Angular, microservices, Kafka, AWS, and cloud-native systems." />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Manish Vemulapalli — Software Engineer</title>
+  <meta name="description" content="Manish Vemulapalli — Java Full Stack Developer. Spring Boot, Angular, Kafka, AWS."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#030406;
-      --bg-2:#07090d;
-      --bg-3:#0a0c11;
-      --card:#0e1117;
-      --card-2:#141820;
-      --card-3:#1a2029;
-      --text:#e7eaee;
-      --muted:#96a0ab;
-      --line:#232933;
-      --line-2:#2d3440;
-      --accent:#b79a5c;
-      --accent-strong:#d3b06a;
-      --accent-soft:#7b6850;
-      --steel:#646a73;
-      --shadow:0 18px 50px rgba(0,0,0,.58);
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      font-family: var(--sans);
-      color: var(--text);
-      background:
-        radial-gradient(circle at 15% 0%, rgba(100,106,115,.08), transparent 20%),
-        radial-gradient(circle at 85% 8%, rgba(183,154,92,.05), transparent 16%),
-        linear-gradient(180deg, #030406 0%, #06070a 28%, #090b10 55%, #05060a 100%);
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background:
-        linear-gradient(to bottom, rgba(255,255,255,.02), transparent 14%),
-        radial-gradient(circle at center, transparent 58%, rgba(0,0,0,.18) 100%);
-      opacity: .38;
-      z-index: 0;
-    }
-
-    a { color: inherit; text-decoration: none; }
-
-    .page {
-  position: relative;
-  z-index: 1;
-  width: min(1220px, calc(100% - 32px));
-  margin: 24px auto;
-  display: grid;
-  grid-template-columns: 360px 1fr;
-  gap: 24px;
-  align-items: start;
-}
-
-    .sidebar, .topbar, .hero, section.block, .card, .job, .stat {
-      border: 1px solid rgba(100,106,115,.18);
-      background: linear-gradient(180deg, rgba(14,17,23,.98), rgba(20,24,32,.96));
-      box-shadow: var(--shadow);
-      transition:
-        transform .26s ease,
-        border-color .26s ease,
-        box-shadow .26s ease,
-        background .26s ease;
-      backdrop-filter: blur(10px);
-    }
-
-    .sidebar {
-      position: sticky;
-      top: 20px;
-      border-radius: 28px;
-      padding: 26px;
-      overflow: hidden;
-      animation: panel-enter .7s ease both;
-    }
-
-    .sidebar::before{
-      content:"";
-      position:absolute;
-      inset:0 auto auto 0;
-      width:100%;
-      height:150px;
-      background:
-        linear-gradient(135deg, rgba(183,154,92,.07), rgba(100,106,115,.08), transparent 72%);
-      pointer-events:none;
-      animation: breathe 10s ease-in-out infinite;
-    }
-
-    .sidebar::after{
-      content:"";
-      position:absolute;
-      right:-40px;
-      bottom:-60px;
-      width:180px;
-      height:180px;
-      background: radial-gradient(circle, rgba(183,154,92,.04), transparent 68%);
-      filter: blur(10px);
-      pointer-events:none;
-    }
-
-    .avatar {
-      width: 96px;
-      height: 96px;
-      border-radius: 24px;
-      background: linear-gradient(145deg, #11151c, #07080c);
-      border: 1px solid rgba(100,106,115,.24);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size: 34px;
-      color: var(--accent);
-      margin-bottom: 18px;
-      position: relative;
-      overflow: hidden;
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.03),
-        0 0 0 1px rgba(183,154,92,.05),
-        0 0 22px rgba(0,0,0,.34);
-    }
-
-    .avatar::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background: linear-gradient(145deg, rgba(255,255,255,.05), transparent 35%, transparent 70%, rgba(255,255,255,.03));
-      pointer-events:none;
-    }
-
-    .tiny {
-      color: var(--muted);
-      font-family: var(--mono);
-      font-size: 13px;
-      margin-bottom: 14px;
-    }
-
-   .name {
-  font-size: 36px;
-  line-height: .92;
-  letter-spacing: -.05em;
-  margin: 0 0 12px 0;
-  font-weight: 800;
-  white-space: nowrap;
-  display: inline-block;
-}
-    .role {
-      font-size: 16px;
-      color: #d7dde4;
-      margin-bottom: 18px;
-    }
-
-    .summary {
-      color: var(--muted);
-      line-height: 1.72;
-      font-size: 15px;
-      margin-bottom: 22px;
-    }
-
-    .contact-list {
-      display: grid;
-      gap: 12px;
-      margin: 22px 0;
-    }
-
-    .contact {
-      display:flex;
-      align-items:flex-start;
-      gap: 10px;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.5;
-    }
-
-    .contact .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      margin-top: 8px;
-      background: var(--accent);
-      flex: 0 0 auto;
-      box-shadow: 0 0 0 6px rgba(183,154,92,.08);
-    }
-
-    .cta-row {
-      display:flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 22px;
-    }
-
-    .btn {
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap: 8px;
-      padding: 12px 16px;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 600;
-      border: 1px solid rgba(100,106,115,.22);
-      background: linear-gradient(180deg, rgba(16,19,25,.96), rgba(10,12,17,.96));
-      color: var(--text);
-      transition:
-        transform .22s ease,
-        border-color .22s ease,
-        box-shadow .22s ease,
-        color .22s ease,
-        background .22s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .btn::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,.06) 24%, transparent 45%);
-      transform: translateX(-150%);
-      transition: transform .55s ease;
-      pointer-events:none;
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-      border-color: rgba(183,154,92,.32);
-      box-shadow: 0 10px 24px rgba(0,0,0,.24);
-    }
-
-    .btn:hover::before{
-      transform: translateX(170%);
-    }
-
-    .btn.primary {
-      background: linear-gradient(180deg, rgba(26,21,14,.98), rgba(14,12,9,.98));
-      color: var(--accent-strong);
-      border-color: rgba(183,154,92,.28);
-      box-shadow:
-        0 8px 22px rgba(0,0,0,.22),
-        inset 0 1px 0 rgba(255,255,255,.03),
-        0 0 0 1px rgba(183,154,92,.04);
-    }
-
-    .content { min-width: 0; }
-
-    .topbar {
-      position: sticky;
-      top: 20px;
-      z-index: 10;
-      margin-bottom: 24px;
-      border-radius: 22px;
-      padding: 14px 16px;
-      animation: panel-enter .8s ease both;
-    }
-
-    .nav {
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .nav-links {
-      display:flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .nav-links a {
-      padding: 10px 14px;
-      color: var(--muted);
-      border-radius: 999px;
-      font-size: 14px;
-      transition:.22s ease;
-      position: relative;
-    }
-
-    .nav-links a::after{
-      content:"";
-      position:absolute;
-      left:14px;
-      right:14px;
-      bottom:6px;
-      height:1px;
-      background: linear-gradient(90deg, transparent, rgba(183,154,92,.8), transparent);
-      transform: scaleX(0);
-      transform-origin:center;
-      transition: transform .22s ease;
-      opacity: .85;
-    }
-
-    .nav-links a:hover {
-      color: var(--text);
-      background: rgba(255,255,255,.03);
-    }
-
-    .nav-links a:hover::after{
-      transform: scaleX(1);
-    }
-
-    .nav-strong {
-      font-family: var(--mono);
-      color: var(--accent);
-      font-size: 13px;
-      white-space: nowrap;
-      opacity: .9;
-    }
-
-    .hero h1 {
-  margin: 0 0 10px 0;
-  font-size: clamp(44px, 7vw, 74px);
-  line-height: .92;
-  letter-spacing: -.05em;
-  white-space: nowrap;
-  display: inline-block;
-}
-
-    .hero::before{
-      content:"";
-      position:absolute;
-      inset:-15% auto auto -18%;
-      width:62%;
-      height:170%;
-      background: linear-gradient(
-        115deg,
-        transparent 0%,
-        rgba(255,255,255,.018) 18%,
-        rgba(183,154,92,.045) 28%,
-        rgba(255,255,255,.02) 36%,
-        transparent 48%
-      );
-      transform: rotate(10deg);
-      filter: blur(2px);
-      pointer-events:none;
-      animation: batsignal-sweep 14s ease-in-out infinite;
-      z-index: 0;
-    }
-
-    .hero::after{
-      content:"";
-      position:absolute;
-      right:-110px;
-      top:-110px;
-      width:280px;
-      height:280px;
-      background: radial-gradient(circle, rgba(183,154,92,.08), rgba(100,106,115,.06), transparent 68%);
-      pointer-events:none;
-      filter: blur(10px);
-      animation: breathe 11s ease-in-out infinite;
-      z-index: 0;
-    }
-
-    .hero > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    .eyebrow {
-      color: var(--steel);
-      font-family: var(--mono);
-      font-size: 13px;
-      margin-bottom: 16px;
-      letter-spacing: .02em;
-    }
-
-    .hero h1 {
-      margin: 0 0 10px 0;
-      font-size: clamp(40px, 8vw, 74px);
-      line-height: .95;
-      letter-spacing: -.05em;
-    }
-
-    .hero .subtitle {
-      font-size: clamp(18px, 2.6vw, 24px);
-      color: #d9dee5;
-      margin-bottom: 16px;
-      font-weight: 600;
-    }
-
-    .hero p {
-      color: var(--muted);
-      max-width: 880px;
-      line-height: 1.8;
-      font-size: 16px;
-      margin-bottom: 24px;
-    }
-
-    .stats {
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-      gap: 14px;
-    }
-
-    .stat {
-      border-radius: 22px;
-      padding: 18px;
-      background: linear-gradient(180deg, rgba(9,11,15,.98), rgba(17,21,28,.96));
-    }
-
-    .stat strong {
-      display:block;
-      font-size: 28px;
-      margin-bottom: 6px;
-      color: var(--accent);
-      letter-spacing: -.03em;
-    }
-
-    .stat span {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.5;
-    }
-
-    section.block {
-      border-radius: 28px;
-      padding: 28px;
-      margin-bottom: 24px;
-      animation: panel-enter .85s ease both;
-    }
-
-    .label {
-      font-family: var(--mono);
-      color: var(--steel);
-      font-size: 13px;
-      margin-bottom: 10px;
-      letter-spacing: .02em;
-    }
-
-    h2.section-title {
-      margin: 0 0 22px 0;
-      font-size: 30px;
-      letter-spacing: -.04em;
-      position: relative;
-    }
-
-    h2.section-title::after {
-      content:"";
-      position:absolute;
-      left:0;
-      bottom:-6px;
-      width:60px;
-      height:1px;
-      background: linear-gradient(90deg, rgba(183,154,92,.85), transparent);
-      opacity:.9;
-    }
-
-    .about-grid {
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 18px;
-    }
-
-    .about-copy {
-      color: var(--muted);
-      line-height: 1.85;
-      font-size: 15.5px;
-    }
-
-    .pill-grid {
-      display:flex;
-      flex-wrap:wrap;
-      gap: 10px;
-      align-content:flex-start;
-    }
-
-    .pill, .list span {
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: linear-gradient(180deg, rgba(16,19,25,.96), rgba(10,12,17,.96));
-      border: 1px solid rgba(100,106,115,.2);
-      color: #dde2e8;
-      font-size: 13px;
-      font-weight: 600;
-      transition: border-color .22s ease, transform .22s ease, box-shadow .22s ease;
-    }
-
-    .pill:hover, .list span:hover {
-      transform: translateY(-1px);
-      border-color: rgba(183,154,92,.22);
-      box-shadow: 0 6px 14px rgba(0,0,0,.18);
-    }
-
-    .timeline, .skills-grid, .project-grid, .edu-grid {
-      display:grid;
-      gap: 16px;
-    }
-
-    .skills-grid {
-      grid-template-columns: repeat(2, minmax(0,1fr));
-    }
-
-    .project-grid, .edu-grid {
-      grid-template-columns: repeat(2, minmax(0,1fr));
-    }
-
-    .job, .card {
-      border-radius: 22px;
-      padding: 20px;
-      background: linear-gradient(180deg, rgba(9,11,15,.98), rgba(17,21,28,.96));
-    }
-
-    .card:hover, .job:hover, .stat:hover {
-      transform: translateY(-2px);
-      border-color: rgba(183,154,92,.18);
-      box-shadow:
-        0 16px 34px rgba(0,0,0,.35),
-        0 0 0 1px rgba(183,154,92,.04);
-    }
-
-    .job-head {
-      display:flex;
-      justify-content:space-between;
-      gap: 16px;
-      align-items:flex-start;
-      margin-bottom: 10px;
-      flex-wrap: wrap;
-    }
-
-    .job-title {
-      font-size: 21px;
-      margin: 0 0 4px 0;
-      letter-spacing: -.03em;
-      position: relative;
-    }
-
-    .job-company {
-      color: #d8dde4;
-      font-weight: 600;
-    }
-
-    .job-date {
-      color: var(--accent);
-      font-family: var(--mono);
-      font-size: 13px;
-      white-space: nowrap;
-    }
-
-    .bullets {
-      margin: 12px 0 0 0;
-      padding-left: 18px;
-      color: var(--muted);
-      line-height: 1.8;
-      font-size: 15px;
-    }
-
-    .stack {
-      display:flex;
-      flex-wrap:wrap;
-      gap: 8px;
-      margin-top: 14px;
-    }
-
-    .stack span {
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(24,29,37,.96);
-      border: 1px solid rgba(100,106,115,.22);
-      color: #c7cfd8;
-      font-size: 12px;
-      font-weight: 600;
-      transition: border-color .22s ease, transform .22s ease, color .22s ease;
-    }
-
-    .stack span:hover {
-      transform: translateY(-1px);
-      border-color: rgba(183,154,92,.22);
-      color: #e2d3af;
-    }
-
-    .card h3 {
-      margin: 0 0 14px 0;
-      font-size: 18px;
-      letter-spacing: -.03em;
-      position: relative;
-    }
-
-    .list {
-      display:flex;
-      flex-wrap:wrap;
-      gap: 10px;
-    }
-
-    .project-card p, .edu-card p {
-      color: var(--muted);
-      line-height: 1.75;
-      font-size: 14.5px;
-      margin: 0;
-    }
-
-    .contact-box {
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 18px;
-    }
-
-    .footer {
-      color: #727b87;
-      font-size: 13px;
-      text-align:center;
-      padding: 6px 0 24px;
-    }
-
-    /* Motion */
-    .scroll-reveal {
-  opacity: 0;
-  transform: translateY(12px) scale(.995);
-  filter: blur(3px);
-  transition:
-    opacity .42s cubic-bezier(.2,.8,.2,1),
-    transform .42s cubic-bezier(.2,.8,.2,1),
-    filter .42s cubic-bezier(.2,.8,.2,1);
-  transition-delay: var(--reveal-delay, 0ms);
-  will-change: opacity, transform, filter;
-}
-
-    .scroll-reveal.is-visible {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-      filter: blur(0);
-    }
-
-    .reveal-letters {
-      display: inline-block;
-      overflow: visible;
-    }
-
-    .reveal-letters .char {
-      display: inline-block;
-      opacity: 0;
-      transform: translateY(16px);
-      filter: blur(8px);
-      will-change: transform, opacity, filter;
-    }
-
-    .reveal-letters.play .char {
-      animation: char-rise .7s cubic-bezier(.2,.8,.2,1) forwards;
-      animation-delay: calc(var(--char-index) * 0.03s);
-    }
-
-    .reveal-letters.play .char.space {
-      width: 0.28em;
-    }
-
-    @keyframes char-rise {
-      0% {
-        opacity: 0;
-        transform: translateY(16px);
-        filter: blur(8px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-        filter: blur(0);
-      }
-    }
-
-    @keyframes panel-enter {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes breathe {
-      0%, 100% {
-        opacity: .72;
-        transform: scale(1);
-      }
-      50% {
-        opacity: 1;
-        transform: scale(1.035);
-      }
-    }
-
-    @keyframes batsignal-sweep {
-      0%, 100% {
-        transform: rotate(10deg) translateX(0);
-        opacity: .16;
-      }
-      45% {
-        transform: rotate(10deg) translateX(22px);
-        opacity: .28;
-      }
-      55% {
-        transform: rotate(10deg) translateX(30px);
-        opacity: .34;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto !important; }
-
-      *, *::before, *::after {
-        animation: none !important;
-        transition: none !important;
-      }
-
-      .scroll-reveal,
-      .scroll-reveal.is-visible,
-      .reveal-letters .char {
-        opacity: 1 !important;
-        transform: none !important;
-        filter: none !important;
-      }
-    }
-
-    @media (max-width: 1050px) {
-      .page { grid-template-columns: 1fr; }
-      .sidebar { position: relative; top: 0; }
-      .about-grid, .contact-box { grid-template-columns: 1fr; }
-    }
-
-    @media (max-width: 720px) {
-      .page {
-        width: min(100% - 20px, 1220px);
-        margin: 10px auto 18px;
-        gap: 14px;
-      }
-
-      .sidebar, .topbar, .hero, section.block {
-        border-radius: 22px;
-        padding: 20px;
-      }
-
-      .name { font-size: 32px; }
-      .hero h1 { font-size: 40px; }
-      .stats, .skills-grid, .project-grid, .edu-grid { grid-template-columns: 1fr; }
-      .nav { align-items:flex-start; }
-    }
+      --bg:#020203;--card:#09090c;
+      --y:#F5C518;--yd:#a8870e;
+      --b:rgba(245,197,24,.18);--bh:rgba(245,197,24,.6);
+      --txt:#eaecef;--mut:#8a929c;
+      --sh:0 30px 90px rgba(0,0,0,.85);
+      --mono:'JetBrains Mono',monospace;
+      --sans:'DM Sans',system-ui,sans-serif;
+      --D:'Bebas Neue',impact,sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:var(--sans);color:var(--txt);background:var(--bg);overflow-x:hidden;min-height:100vh;}
+    #bg-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;}
+    .grid-over{position:fixed;inset:0;z-index:1;pointer-events:none;background-image:linear-gradient(rgba(245,197,24,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(245,197,24,.06) 1px,transparent 1px);background-size:80px 80px;}
+    .scan{position:fixed;inset:0;z-index:2;pointer-events:none;background:repeating-linear-gradient(to bottom,transparent,transparent 2px,rgba(0,0,0,.1) 2px,rgba(0,0,0,.1) 3px);}
+    .lightning{position:fixed;inset:0;z-index:999;pointer-events:none;background:rgba(245,197,24,.14);opacity:0;}
+    .lightning.flash{animation:lflash .4s ease-out forwards;}
+    @keyframes lflash{0%{opacity:0;}8%{opacity:1;}20%{opacity:.2;}35%{opacity:.85;}55%{opacity:.1;}70%{opacity:.6;}100%{opacity:0;}}
+    /* BAT SIGNAL */
+    .sig{position:fixed;top:-160px;right:-160px;width:760px;height:760px;pointer-events:none;z-index:1;}
+    .sig-glow{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle,rgba(245,197,24,.2) 0%,rgba(245,197,24,.1) 28%,rgba(245,197,24,.03) 52%,transparent 68%);animation:breathe 4s ease-in-out infinite;}
+    .sig-ring{position:absolute;border-radius:50%;border:2px solid rgba(245,197,24,.4);}
+    .sig-ring.r1{inset:80px;animation:spin 20s linear infinite;box-shadow:0 0 25px rgba(245,197,24,.25),inset 0 0 25px rgba(245,197,24,.1);}
+    .sig-ring.r2{inset:112px;border-style:dashed;border-color:rgba(245,197,24,.2);animation:spin 36s linear infinite reverse;}
+    .sig-ring.r3{inset:148px;border-width:1px;border-color:rgba(245,197,24,.3);animation:spin 28s linear infinite;}
+    .sig-beam{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,transparent 340deg,rgba(245,197,24,.22) 350deg,rgba(245,197,24,.45) 355deg,rgba(245,197,24,.22) 360deg);animation:spin 7s linear infinite;filter:blur(3px);}
+    .sig-beam2{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 180deg,transparent 344deg,rgba(245,197,24,.15) 352deg,rgba(245,197,24,.28) 357deg,rgba(245,197,24,.15) 360deg);animation:spin 7s linear infinite;filter:blur(1px);}
+    .sig-bat{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;}
+    .sig-bat svg{width:270px;height:125px;filter:drop-shadow(0 0 35px rgba(245,197,24,1)) drop-shadow(0 0 70px rgba(245,197,24,.6)) drop-shadow(0 0 120px rgba(245,197,24,.3));animation:bat-pulse 3s ease-in-out infinite;}
+    @keyframes breathe{0%,100%{opacity:.85;transform:scale(1);}50%{opacity:1;transform:scale(1.07);}}
+    @keyframes spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+    @keyframes bat-pulse{0%,100%{opacity:.5;filter:drop-shadow(0 0 22px rgba(245,197,24,.8)) drop-shadow(0 0 55px rgba(245,197,24,.35));}50%{opacity:1;filter:drop-shadow(0 0 45px rgba(245,197,24,1)) drop-shadow(0 0 90px rgba(245,197,24,.7)) drop-shadow(0 0 150px rgba(245,197,24,.35));}}
+    a{color:inherit;text-decoration:none;}
+    /* LAYOUT */
+    .page{position:relative;z-index:10;width:min(1260px,calc(100% - 32px));margin:28px auto;display:grid;grid-template-columns:360px 1fr;gap:20px;align-items:start;}
+    /* SIDEBAR */
+    .sidebar{position:sticky;top:20px;border-radius:3px;padding:32px 26px;background:rgba(9,9,13,.97);border:1px solid rgba(245,197,24,.28);border-left:4px solid var(--y);box-shadow:var(--sh),-8px 0 80px rgba(245,197,24,.18),0 0 0 1px rgba(245,197,24,.06);overflow:hidden;animation:slideUp .7s cubic-bezier(.2,.8,.2,1) both;}
+    .sidebar::before{content:'';position:absolute;inset:-1px;border-radius:3px;background:transparent;animation:sb-pulse 3s ease-in-out infinite;pointer-events:none;}
+    @keyframes sb-pulse{0%,100%{box-shadow:0 0 25px rgba(245,197,24,.12),inset 0 0 25px rgba(245,197,24,.04);}50%{box-shadow:0 0 60px rgba(245,197,24,.35),-5px 0 50px rgba(245,197,24,.22),inset 0 0 40px rgba(245,197,24,.08);}}
+    .sb-bg{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 0% 0%,rgba(245,197,24,.1),transparent 55%);}
+    .sb-bat{position:absolute;bottom:16px;right:16px;opacity:.1;color:var(--y);pointer-events:none;filter:drop-shadow(0 0 16px rgba(245,197,24,.5));animation:breathe 6s ease-in-out infinite;}
+    .avatar{width:84px;height:84px;border-radius:3px;background:linear-gradient(145deg,#111216,#07080b);border:1px solid rgba(245,197,24,.35);border-left:3px solid var(--y);display:flex;align-items:center;justify-content:center;font-family:var(--D);font-size:26px;letter-spacing:3px;color:var(--y);margin-bottom:20px;box-shadow:0 0 50px rgba(245,197,24,.25),inset 0 0 20px rgba(245,197,24,.06);animation:breathe 4s ease-in-out infinite;}
+    .tiny{font-family:var(--mono);font-size:10.5px;color:var(--mut);letter-spacing:.05em;margin-bottom:14px;}
+    .name{font-family:var(--D);font-size:42px;line-height:.88;letter-spacing:3px;color:var(--txt);margin-bottom:14px;}
+    .name span{color:var(--y);text-shadow:0 0 24px rgba(245,197,24,.6);}
+    .role{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid rgba(245,197,24,.15);}
+    .summary{color:var(--mut);line-height:1.78;font-size:14px;margin-bottom:20px;}
+    .cl{display:grid;gap:10px;margin:20px 0;}
+    .ci{display:flex;align-items:flex-start;gap:10px;color:var(--mut);font-size:13px;line-height:1.5;}
+    .dot{width:6px;height:6px;border-radius:1px;background:var(--y);margin-top:8px;flex:0 0 auto;box-shadow:0 0 14px rgba(245,197,24,1),0 0 28px rgba(245,197,24,.5);animation:dot-pulse 2s ease-in-out infinite;}
+    @keyframes dot-pulse{0%,100%{box-shadow:0 0 10px rgba(245,197,24,.8),0 0 20px rgba(245,197,24,.35);}50%{box-shadow:0 0 22px rgba(245,197,24,1),0 0 44px rgba(245,197,24,.7),0 0 70px rgba(245,197,24,.25);}}
+    .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px;padding-top:18px;border-top:1px solid rgba(245,197,24,.15);}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:2px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(245,197,24,.32);background:transparent;color:var(--mut);transition:all .2s ease;position:relative;overflow:hidden;}
+    .btn::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--y);box-shadow:0 0 20px rgba(245,197,24,1),0 0 40px rgba(245,197,24,.6);transform:scaleY(0);transform-origin:bottom;transition:transform .22s ease;}
+    .btn::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(245,197,24,.1),transparent);opacity:0;transition:opacity .2s ease;}
+    .btn:hover{border-color:var(--bh);color:var(--y);box-shadow:0 0 50px rgba(245,197,24,.25),0 0 100px rgba(245,197,24,.1);}
+    .btn:hover::before{transform:scaleY(1);}
+    .btn:hover::after{opacity:1;}
+    .btn.primary{background:var(--y);color:#000;border-color:var(--y);font-weight:900;box-shadow:0 0 40px rgba(245,197,24,.5),0 0 80px rgba(245,197,24,.25);}
+    .btn.primary::before,.btn.primary::after{display:none;}
+    .btn.primary:hover{background:#ffd600;box-shadow:0 0 80px rgba(245,197,24,.9),0 0 160px rgba(245,197,24,.5),0 0 240px rgba(245,197,24,.2);transform:translateY(-2px) scale(1.03);}
+    /* NAV */
+    .content{min-width:0;}
+    .topbar{position:sticky;top:20px;z-index:20;margin-bottom:20px;border-radius:3px;padding:13px 20px;background:rgba(5,5,7,.95);border:1px solid rgba(245,197,24,.22);backdrop-filter:blur(28px);box-shadow:0 0 50px rgba(245,197,24,.1);animation:slideUp .6s cubic-bezier(.2,.8,.2,1) both;}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;}
+    .nav-links{display:flex;flex-wrap:wrap;gap:2px;}
+    .nav-links a{padding:7px 12px;color:var(--mut);border-radius:2px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;transition:all .18s ease;position:relative;}
+    .nav-links a::after{content:'';position:absolute;left:12px;right:12px;bottom:3px;height:2px;background:var(--y);box-shadow:0 0 14px rgba(245,197,24,1),0 0 28px rgba(245,197,24,.5);transform:scaleX(0);transform-origin:left;transition:transform .2s ease;}
+    .nav-links a:hover{color:var(--y);text-shadow:0 0 14px rgba(245,197,24,.6);}
+    .nav-links a:hover::after{transform:scaleX(1);}
+    .nav-badge{font-family:var(--mono);font-size:10.5px;color:var(--y);opacity:.8;white-space:nowrap;letter-spacing:.04em;text-shadow:0 0 12px rgba(245,197,24,.5);}
+    /* HERO */
+    .hero{border-radius:3px;padding:50px 42px 44px;background:rgba(9,9,13,.97);border:1px solid rgba(245,197,24,.22);border-bottom:4px solid var(--y);box-shadow:var(--sh),0 8px 100px rgba(245,197,24,.1),0 -1px 0 rgba(245,197,24,.12);margin-bottom:20px;position:relative;overflow:hidden;animation:slideUp .8s cubic-bezier(.2,.8,.2,1) both;}
+    .hero::after{content:'';position:absolute;bottom:0;right:0;width:300px;height:300px;background:radial-gradient(ellipse at 100% 100%,rgba(245,197,24,.12),transparent 58%);pointer-events:none;}
+    .eyebrow{font-family:var(--mono);font-size:11px;color:var(--y);letter-spacing:.24em;text-transform:uppercase;margin-bottom:24px;display:flex;align-items:center;gap:14px;text-shadow:0 0 14px rgba(245,197,24,.6);}
+    .eyebrow::before{content:'';display:block;width:44px;height:2px;background:var(--y);box-shadow:0 0 18px rgba(245,197,24,1),0 0 36px rgba(245,197,24,.5);}
+    /* GLITCH */
+    .hname{font-family:var(--D);font-size:clamp(64px,9.5vw,106px);line-height:.85;letter-spacing:6px;color:var(--txt);margin-bottom:18px;position:relative;display:inline-block;animation:name-glow 4s ease-in-out infinite;}
+    @keyframes name-glow{0%,100%{text-shadow:0 0 40px rgba(245,197,24,.25),0 0 80px rgba(245,197,24,.1);}50%{text-shadow:0 0 70px rgba(245,197,24,.5),0 0 140px rgba(245,197,24,.22),0 0 220px rgba(245,197,24,.1);}}
+    .hname .yl{color:var(--y);text-shadow:0 0 35px rgba(245,197,24,.8),0 0 70px rgba(245,197,24,.45),0 0 110px rgba(245,197,24,.22);}
+    .gl{position:absolute;inset:0;font-family:var(--D);font-size:inherit;line-height:inherit;letter-spacing:inherit;pointer-events:none;opacity:0;white-space:nowrap;}
+    .gl.a{color:var(--y);}
+    .gl.b{color:#fff;}
+    .hname.glitch .gl.a{opacity:1;animation:ga .38s steps(4) forwards;clip-path:polygon(0 0,100% 0,100% 38%,0 38%);}
+    .hname.glitch .gl.b{opacity:1;animation:gb .38s steps(4) forwards;clip-path:polygon(0 60%,100% 60%,100% 86%,0 86%);}
+    @keyframes ga{0%{transform:translateX(0) skewX(0);}25%{transform:translateX(-14px) skewX(-10deg);}50%{transform:translateX(10px) skewX(6deg);}75%{transform:translateX(-6px) skewX(-4deg);}100%{transform:translateX(0);}}
+    @keyframes gb{0%{transform:translateX(0) skewX(0);}25%{transform:translateX(14px) skewX(10deg);}50%{transform:translateX(-10px) skewX(-6deg);}75%{transform:translateX(6px) skewX(4deg);}100%{transform:translateX(0);}}
+    /* SUBTITLE TYPEWRITER */
+    .hsub{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--y);margin-bottom:22px;display:flex;align-items:center;gap:12px;text-shadow:0 0 18px rgba(245,197,24,.7);}
+    .hsub::after{content:'';flex:1;max-width:160px;height:2px;background:linear-gradient(90deg,rgba(245,197,24,.7),transparent);box-shadow:0 0 10px rgba(245,197,24,.5);}
+    .cursor{display:inline-block;width:2px;height:1em;background:var(--y);margin-left:3px;vertical-align:middle;box-shadow:0 0 12px rgba(245,197,24,1),0 0 24px rgba(245,197,24,.5);animation:blink .7s step-end infinite;}
+    @keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+    .hdesc{color:var(--mut);max-width:760px;line-height:1.88;font-size:15.5px;margin-bottom:36px;}
+    /* STATS */
+    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;}
+    .stat{border-radius:3px;padding:16px 18px;background:rgba(6,6,9,.98);border:1px solid rgba(245,197,24,.18);border-top:2px solid var(--yd);transition:all .26s ease;position:relative;overflow:hidden;}
+    .stat::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(245,197,24,.08),transparent 50%);opacity:0;transition:opacity .26s ease;}
+    .stat::after{content:'';position:absolute;left:0;bottom:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(245,197,24,.4),transparent);transform:scaleX(0);transform-origin:left;transition:transform .4s ease;}
+    .stat:hover{border-top-color:var(--y);border-color:rgba(245,197,24,.55);box-shadow:0 0 50px rgba(245,197,24,.25),0 0 100px rgba(245,197,24,.1),0 12px 50px rgba(0,0,0,.6);transform:translateY(-5px);}
+    .stat:hover::before{opacity:1;}
+    .stat:hover::after{transform:scaleX(1);}
+    .stat strong{display:block;font-family:var(--D);font-size:30px;letter-spacing:2px;color:var(--y);margin-bottom:5px;text-shadow:0 0 24px rgba(245,197,24,.7),0 0 50px rgba(245,197,24,.35);}
+    .stat span{color:var(--mut);font-size:12px;line-height:1.5;}
+    /* SECTIONS */
+    section.block{border-radius:3px;padding:32px;background:rgba(9,9,13,.97);border:1px solid rgba(245,197,24,.18);margin-bottom:20px;transition:border-color .24s ease,box-shadow .24s ease;animation:slideUp .9s cubic-bezier(.2,.8,.2,1) both;}
+    section.block:hover{border-color:rgba(245,197,24,.4);box-shadow:0 0 70px rgba(245,197,24,.1);}
+    .label{font-family:var(--mono);font-size:10.5px;color:var(--y);letter-spacing:.24em;text-transform:uppercase;margin-bottom:10px;text-shadow:0 0 12px rgba(245,197,24,.55);}
+    h2.stitle{font-family:var(--D);font-size:38px;letter-spacing:4px;color:var(--txt);margin:0 0 28px;position:relative;padding-bottom:16px;}
+    h2.stitle::after{content:'';position:absolute;left:0;bottom:0;width:56px;height:3px;background:var(--y);box-shadow:0 0 22px rgba(245,197,24,1),0 0 44px rgba(245,197,24,.6),0 0 88px rgba(245,197,24,.25);animation:lpulse 3s ease-in-out infinite;}
+    @keyframes lpulse{0%,100%{box-shadow:0 0 16px rgba(245,197,24,.8),0 0 32px rgba(245,197,24,.4);}50%{box-shadow:0 0 35px rgba(245,197,24,1),0 0 70px rgba(245,197,24,.7),0 0 120px rgba(245,197,24,.3);}}
+    /* ABOUT */
+    .ag{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;}
+    .ac{color:var(--mut);line-height:1.88;font-size:15px;}
+    .pg{display:flex;flex-wrap:wrap;gap:8px;align-content:flex-start;}
+    .pill{padding:7px 13px;border-radius:2px;background:rgba(6,6,9,.98);border:1px solid rgba(245,197,24,.2);color:var(--mut);font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;transition:all .2s ease;cursor:default;}
+    .pill:hover{border-color:var(--y);color:var(--y);box-shadow:0 0 28px rgba(245,197,24,.4),0 0 60px rgba(245,197,24,.18);transform:translateY(-2px);text-shadow:0 0 12px rgba(245,197,24,.5);}
+    /* JOBS */
+    .tl{display:grid;gap:16px;}
+    .job{border-radius:3px;padding:24px;background:rgba(6,6,9,.98);border:1px solid rgba(245,197,24,.18);border-left:4px solid var(--yd);position:relative;overflow:hidden;transition:all .26s ease;}
+    .job::before{content:'';position:absolute;left:-4px;top:0;bottom:0;width:4px;background:var(--y);box-shadow:0 0 24px rgba(245,197,24,1),0 0 48px rgba(245,197,24,.6);transform:scaleY(0);transform-origin:top;transition:transform .4s ease;}
+    .job::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(245,197,24,.08),transparent 35%);opacity:0;transition:opacity .26s ease;}
+    .job:hover::before{transform:scaleY(1);}
+    .job:hover::after{opacity:1;}
+    .job:hover{border-color:rgba(245,197,24,.55);box-shadow:-10px 0 50px rgba(245,197,24,.25),0 0 100px rgba(245,197,24,.1),0 28px 70px rgba(0,0,0,.7);transform:translateX(6px);}
+    .jh{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:12px;flex-wrap:wrap;}
+    .jt{font-family:var(--D);font-size:22px;letter-spacing:1.5px;color:var(--txt);margin:0 0 5px;}
+    .jc{font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--y);text-shadow:0 0 12px rgba(245,197,24,.5);}
+    .jd{font-family:var(--mono);font-size:10.5px;color:var(--mut);white-space:nowrap;border:1px solid rgba(245,197,24,.22);padding:5px 11px;border-radius:2px;letter-spacing:.05em;}
+    .bullets{margin:14px 0 0;padding-left:16px;color:var(--mut);line-height:1.84;font-size:14px;}
+    .bullets li{margin-bottom:6px;}
+    .bullets li::marker{color:var(--y);}
+    .stack{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;}
+    .stack span{padding:5px 11px;border-radius:2px;border:1px solid rgba(245,197,24,.2);color:var(--mut);font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;transition:all .18s ease;}
+    .stack span:hover{border-color:var(--y);color:var(--y);text-shadow:0 0 10px rgba(245,197,24,.5);box-shadow:0 0 20px rgba(245,197,24,.25);}
+    /* CARDS */
+    .sg{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+    .card{border-radius:3px;padding:20px;background:rgba(6,6,9,.98);border:1px solid rgba(245,197,24,.18);transition:all .26s ease;position:relative;overflow:hidden;}
+    .card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--y),rgba(245,197,24,.3) 70%,transparent);box-shadow:0 0 20px rgba(245,197,24,.7),0 0 40px rgba(245,197,24,.35);opacity:0;transition:opacity .26s ease;}
+    .card:hover{border-color:rgba(245,197,24,.55);box-shadow:0 0 60px rgba(245,197,24,.2),0 0 120px rgba(245,197,24,.08),0 24px 60px rgba(0,0,0,.7);transform:translateY(-5px);}
+    .card:hover::before{opacity:1;}
+    .card h3{font-family:var(--D);font-size:18px;letter-spacing:2px;color:var(--txt);margin:0 0 14px;padding-bottom:10px;border-bottom:1px solid rgba(245,197,24,.15);}
+    .list{display:flex;flex-wrap:wrap;gap:7px;}
+    .list span{padding:6px 12px;border-radius:2px;border:1px solid rgba(245,197,24,.18);color:var(--mut);font-size:11.5px;font-weight:500;transition:all .18s ease;}
+    .list span:hover{border-color:var(--y);color:var(--y);box-shadow:0 0 20px rgba(245,197,24,.3);}
+    .pj{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+    .pj .card p{color:var(--mut);line-height:1.75;font-size:13.5px;margin:0;}
+    .eg{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+    .eg .card p{color:var(--mut);line-height:1.75;font-size:13.5px;margin:0;}
+    .cb{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;}
+    .footer{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;color:var(--mut);text-align:center;padding:10px 0 30px;opacity:.4;}
+    /* SCROLL REVEAL */
+    .sr{opacity:0;transform:translateY(24px) scale(.975);filter:blur(7px);transition:opacity .55s cubic-bezier(.2,.8,.2,1),transform .55s cubic-bezier(.2,.8,.2,1),filter .55s cubic-bezier(.2,.8,.2,1);transition-delay:var(--d,0ms);}
+    .sr.on{opacity:1;transform:none;filter:blur(0);}
+    @keyframes slideUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:none;}}
+    /* ── AI SECTION ──────────────────────────────────── */
+    .ai-section{
+      border-color:rgba(245,197,24,.3);
+      background:rgba(9,9,13,.97);
+      position:relative;overflow:hidden;
+    }
+    .ai-section::before{
+      content:'';position:absolute;inset:0;pointer-events:none;
+      background:radial-gradient(ellipse at 80% 0%,rgba(245,197,24,.07),transparent 60%),
+                 radial-gradient(ellipse at 20% 100%,rgba(245,197,24,.04),transparent 50%);
+    }
+    .ai-label{
+      font-size:11.5px;letter-spacing:.18em;
+      color:var(--y);text-shadow:0 0 16px rgba(245,197,24,.8);
+      animation:lpulse 2.5s ease-in-out infinite;
+    }
+    .ai-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+    .ai-card{
+      border-radius:3px;padding:18px 20px;
+      background:rgba(6,6,9,.98);
+      border:1px solid rgba(245,197,24,.22);
+      border-left:3px solid var(--y);
+      transition:all .26s ease;position:relative;overflow:hidden;
+    }
+    .ai-card::before{
+      content:'';position:absolute;left:0;top:0;bottom:0;width:3px;
+      background:var(--y);
+      box-shadow:0 0 18px rgba(245,197,24,1),0 0 36px rgba(245,197,24,.5);
+      opacity:.6;
+    }
+    .ai-card:hover{
+      border-color:rgba(245,197,24,.55);
+      box-shadow:0 0 50px rgba(245,197,24,.18),0 0 100px rgba(245,197,24,.07);
+      transform:translateX(4px);
+    }
+    .ai-card-label{
+      font-family:var(--mono);font-size:10px;color:var(--y);
+      letter-spacing:.2em;text-transform:uppercase;
+      margin-bottom:12px;text-shadow:0 0 10px rgba(245,197,24,.5);
+    }
+    /* AI PROJECT BADGE */
+    .ai-proj{position:relative;}
+    .ai-proj-badge{
+      display:inline-flex;align-items:center;gap:6px;
+      background:rgba(245,197,24,.12);border:1px solid rgba(245,197,24,.4);
+      color:var(--y);font-family:var(--mono);font-size:9.5px;
+      letter-spacing:.14em;text-transform:uppercase;
+      padding:4px 10px;border-radius:2px;margin-bottom:12px;
+      text-shadow:0 0 10px rgba(245,197,24,.5);
+      box-shadow:0 0 16px rgba(245,197,24,.15);
+      animation:lpulse 3s ease-in-out infinite;
+    }
+    .ai-proj-badge::before{
+      content:'';display:block;width:6px;height:6px;
+      border-radius:50%;background:var(--y);
+      box-shadow:0 0 10px rgba(245,197,24,1);
+      animation:dot-pulse 1.5s ease-in-out infinite;
+    }
+    @media(max-width:1060px){.page{grid-template-columns:1fr;}.sidebar{position:relative;top:0;}.ag,.cb{grid-template-columns:1fr;}}
+    @media(max-width:740px){.page{width:calc(100% - 20px);margin:10px auto;gap:14px;}.hero{padding:28px 22px;}section.block{padding:24px 20px;}.sidebar{padding:24px 20px;}.stats,.sg,.pj,.eg,.ai-grid{grid-template-columns:1fr;}.hname{font-size:60px;}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;}.sr,.sr.on{opacity:1!important;transform:none!important;filter:none!important;}}
   </style>
 </head>
 <body>
-  <div class="page">
-    <aside class="sidebar">
-      <div class="avatar">MV</div>
-      <div class="tiny">// github.com/manish31220 · United States</div>
-      <h1 class="name">MANISH<br>VEMULAPALLI</h1>
-      <div class="role">Software Engineer · Java Full Stack Developer</div>
-      <div class="summary">
-        Java / Spring Boot engineer building scalable backend services, microservices, enterprise APIs,
-        Angular-based applications, and cloud-ready systems. Focused on reliable production engineering,
-        event-driven integrations, and clean software delivery.
-      </div>
+<canvas id="bg-canvas"></canvas>
+<div class="grid-over"></div>
+<div class="scan"></div>
+<div class="lightning" id="lightning"></div>
 
-      <div class="contact-list">
-        <div class="contact"><span class="dot"></span><div>manishvemulapalli9734@gmail.com</div></div>
-        <div class="contact"><span class="dot"></span><div>github.com/manish31220</div></div>
-        <div class="contact"><span class="dot"></span><div>Los Angeles, California, USA</div></div>
-        <div class="contact"><span class="dot"></span><div>Open to Software Engineer/ Full Stack roles/ Backend</div></div>
-      </div>
-
-      <div class="cta-row">
-        <a class="btn primary" href="https://github.com/manish31220" target="_blank" rel="noreferrer">View GitHub</a>
-        <a class="btn" href="mailto:manishvemulapalli9734@gmail.com">Email Me</a>
-      </div>
-    </aside>
-
-    <main class="content">
-      <div class="topbar">
-        <div class="nav">
-          <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#experience">Experience</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#education">Education</a>
-            <a href="#contact">Contact</a>
-          </div>
-          <div class="nav-strong">Java · Spring Boot · Angular · Kafka · AWS</div>
-        </div>
-      </div>
-
-      <section class="hero">
-        <div class="eyebrow">// Software Engineer</div>
-        <h1>MANISH<br>VEMULAPALLI</h1>
-        <div class="subtitle">Java Full Stack Developer. </div>
-        <p>
-          4+ years across Full Stack engineering, enterprise APIs, distributed workflows, and full stack development.
-          Built and supported Spring Boot services, Angular applications, event-driven integrations, CI/CD pipelines,
-          and production support processes across business-critical systems.
-        </p>
-
-        <div class="stats">
-          <div class="stat"><strong>4+</strong><span>Years in software engineering and full stack delivery</span></div>
-          <div class="stat"><strong>Java</strong><span>Spring Boot, REST APIs, microservices, backend systems</span></div>
-          <div class="stat"><strong>Angular</strong><span>TypeScript, enterprise UI, frontend integration</span></div>
-          <div class="stat"><strong>AWS</strong><span>EKS, ECR, RDS, Docker, Kubernetes, Terraform</span></div>
-          <div class="stat"><strong>Microservices/ API'S</strong><span>Spring Boot, Spring Cloud, REST APIs , Swagger/OpenAPI,</span></div>
-          <div class="stat"><strong>Pipelines</strong><span>CI/CD workflows, Jenkins automation, build promotion, release stability, safer rollbacks</span></div>
-<div class="stat"><strong>Production</strong><span>CloudWatch, Splunk, and New Relic for dashboards, alerts, logging, and faster incident response</span></div>
-<div class="stat"><strong>Data</strong><span>MySQL, MongoDB, and MarkLogic with query tuning and optimized access patterns</span></div>
-        </div>
-      </section>
-
-      <section class="block" id="about">
-        <div class="label">// Profile</div>
-        <h2 class="section-title">About</h2>
-        <div class="about-grid">
-          <div class="about-copy">
-            I’m a Java Full Stack Developer with strong hands-on experience building backend services,
-            microservices, and enterprise applications using Java, Spring Boot, Angular, TypeScript,
-            Kafka, SQL / NoSQL databases, and cloud-native tools.
-            <br><br>
-            My recent work has focused on production-grade services, API integrations, distributed systems,
-            CI/CD workflows, and supporting business-critical applications. I enjoy turning complex requirements
-            into reliable and maintainable software that teams can extend confidently.
-            <br><br>
-            I’m especially interested in backend engineering, scalable system design, cloud platforms,
-            and modern software delivery practices.
-          </div>
-          <div class="pill-grid">
-            <span class="pill">Java</span>
-            <span class="pill">Angular</span>
-            <span class="pill">TypeScript</span>
-            <span class="pill">Spring Boot</span>
-            <span class="pill">REST APIs</span>
-            <span class="pill">Microservices</span>
-            <span class="pill">Kafka</span>
-            <span class="pill">AWS</span>
-            <span class="pill">Docker</span>
-            <span class="pill">Kubernetes</span>
-            <span class="pill">CI/CD PipeLines</span>
-            <span class="pill">Terraform</span>
-            <span class="pill">Splunk</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="block" id="experience">
-        <div class="label">// Work history</div>
-        <h2 class="section-title">Experience</h2>
-        <div class="timeline">
-          <article class="job">
-            <div class="job-head">
-              <div>
-                <h3 class="job-title">Software Engineer / Java Developer</h3>
-                <div class="job-company">Sony Pictures Entertainment</div>
-              </div>
-              <div class="job-date"> Jan 2023 – Present</div>
-            </div>
-
-            <ul class="bullets">
-              <li>Designed and developed scalable, fault-tolerant microservices in Java (17+), Spring Boot, and REST APIs to support high-throughput enterprise workflows (S2F/C2C/RPM).</li>
-              <li>Deployed and supported containerized services on AWS EKS within a VPC; configured IAM roles/policies and security groups to enforce least-privilege access.</li>
-              <li>Increased release repeatability and reduced deployment errors by standardizing Docker build/versioning and Jenkins promotion workflows (ECR), enabling safer rollbacks across environments.</li>
-              <li>Processed ~0.5–2M Kafka events/day for asynchronous workflows and near real-time tracking, improving message processing stability with retry/DLQ handling and monitoring.</li>
-              <li>Cut MTTR by ~25–30% by building actionable dashboards and alerts (CloudWatch/Splunk/New Relic) and improving structured logging for faster incident triage.</li>
-              <li>Improved p95 API latency ~20–35% by tuning RDS MySQL queries (indexes + rewrites) and optimizing Mongo/MarkLogic access patterns; reduced top slow query from ~1000–1400 ms to ~300–700 ms.</li>
-              <li>Used vibe coding with Claude + Copilot to accelerate Spring Boot and Terraform delivery by generating code/test drafts that consistently passed review and CI.</li>
-            </ul>
-
-            <div class="stack">
-              <span>Java</span><span>Spring Boot</span><span>Spring Cloud</span><span>REST APIs</span><span>Swagger / OpenAPI</span><span>Kafka</span><span>Resilience4j</span><span>AWS</span><span>Claude + Copilot </span>
-            </div>
-          </article>
-
-          <article class="job">
-            <div class="job-head">
-              <div>
-                <h3 class="job-title">Full Stack / Backend Engineering Experience</h3>
-                <div class="job-company">Delta AirLines</div>
-              </div>
-            </div>
-
-            <ul class="bullets">
-              <li>Aggregated multi-source datasets via external REST APIs and normalized outputs for analytics and insight workflows; used Java 8+ (Streams/Lambdas/Optional) for clean transformations and validation.</li>
-              <li>Documented and designed RESTful APIs using Swagger/OpenAPI; collaborated with senior engineers on Spring Boot integrations and production support (defensive validation, retries/timeouts, stable API contracts).</li>
-              <li>Supported delivery and operations under guidance: Jenkins pipeline steps (build/test checks), log/trace review in Splunk/New Relic (CloudWatch where used), and template-driven deliverables (Seismic LiveDocs) under change control.</li>
-            </ul>
-
-            <div class="stack">
-             <span>Java</span><span>Angular</span><span>TypeScript</span><span>SQL</span><span>MongoDB</span><span>MarkLogic</span><span>Maven</span><span>JIRA</span>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="block" id="skills">
-        <div class="label">// Tech stack</div>
-        <h2 class="section-title">Skills</h2>
-
-        <div class="skills-grid">
-          <div class="card">
-            <h3>Languages</h3>
-            <div class="list">
-              <span>Java</span>
-              <span>SQL</span>
-              <span>JavaScript</span>
-              <span>TypeScript</span>
-            </div>
-          </div>
-
-          <div class="card">
-            <h3>Frameworks</h3>
-            <div class="list">
-              <span>Spring Boot</span>
-              <span>Spring Cloud</span>
-              <span>REST APIs</span>
-              <span>Swagger / OpenAPI</span>
-              <span>Apache Kafka</span>
-            </div>
-          </div>
-
-          <div class="card">
-            <h3>Architecture</h3>
-            <div class="list">
-              <span>Microservices</span>
-              <span>Resilience4j</span>
-              <span>Eureka</span>
-              <span>Zuul / Spring Cloud Gateway</span>
-              <span>Feature Toggles</span>
-            </div>
-          </div>
-
-          <div class="card">
-            <h3>Data</h3>
-            <div class="list">
-              <span>MySQL</span>
-              <span>MongoDB</span>
-              <span>MarkLogic</span>
-            </div>
-          </div>
-
-          <div class="card">
-            <h3>CI/CD &amp; Tools</h3>
-            <div class="list">
-              <span>Jenkins</span>
-              <span>Git</span>
-              <span>JIRA</span>
-              <span>Confluence</span>
-              <span>Maven</span>
-            </div>
-          </div>
-
-          <div class="card">
-            <h3>Cloud / DevOps</h3>
-            <div class="list">
-              <span>AWS (EKS, ECR, RDS, VPC, IAM, CloudWatch)</span>
-              <span>Docker</span>
-              <span>Kubernetes</span>
-              <span>Terraform</span>
-            </div>
-          </div>
-
-          <div class="card">
-            <h3>Observability</h3>
-            <div class="list">
-              <span>Splunk</span>
-              <span>New Relic</span>
-              <span>AWS CloudWatch (Logs / Metrics / Alarms)</span>
-            </div>
-          </div>
-
-          <div class="card">
-            <h3>Platforms</h3>
-            <div class="list">
-              <span>GitHub Copilot</span>
-              <span>Claude (Anthropic)</span>
-              <span>Seismic LiveDocs</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="block" id="projects">
-        <div class="label">// Selected systems</div>
-        <h2 class="section-title">Projects & Systems Built</h2>
-
-        <div class="project-grid">
-          <div class="card project-card">
-            <h3>Client Productivity + Analytics Enablement</h3>
-            <p>
-              Services powering KPI reporting, dashboards, and near real-time tracking; designed REST endpoints and data models that support insight workflows.
-            </p>
-          </div>
-
-          <div class="card project-card">
-            <h3>Data + Workflow Integrations</h3>
-            <p>
-              Normalized multi-source datasets for downstream reporting; implemented reusable validation and transformation utilities for consistency.
-            </p>
-          </div>
-
-          <div class="card project-card">
-            <h3>Resilient Microservices Platform</h3>
-            <p>
-              Reliability patterns (Resilience4j), service discovery (Eureka), and gateway routing (Zuul / Spring Cloud Gateway) to keep systems stable during dependency degradation.
-            </p>
-          </div>
-
-          <div class="card project-card">
-            <h3>Observability & Incident Readiness</h3>
-            <p>
-              Dashboards/alerts (Splunk/New Relic/CloudWatch) and operational runbooks to improve detection and triage.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section class="block" id="education">
-        <div class="label">// Academic background</div>
-        <h2 class="section-title">Education</h2>
-        <div class="edu-grid">
-          <div class="card edu-card">
-            <h3>Master's Degree</h3>
-            <p>Graduate-level academic background in computing / engineering-related study, supporting software development and systems thinking.</p>
-          </div>
-          <div class="card edu-card">
-            <h3>Bachelor's Degree</h3>
-            <p>Strong foundation in programming, databases, software engineering, application architecture, and problem solving.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="block" id="contact">
-        <div class="label">// Let's connect</div>
-        <h2 class="section-title">Contact</h2>
-        <div class="contact-box">
-          <div class="card">
-            <h3>Reach out</h3>
-            <p style="color:var(--muted); line-height:1.8; margin:0 0 14px 0;">
-              The fastest way to reach me is by email. If you're hiring for Java, backend, microservices,
-              or full stack roles, feel free to contact me.
-            </p>
-            <div class="list">
-              <span>manishvemulapalli9734@gmail.com</span>
-              <span>github.com/manish31220</span>
-            </div>
-          </div>
-          <div class="card">
-            <h3>Looking for</h3>
-            <p style="color:var(--muted); line-height:1.8; margin:0;">
-              Software Engineer · Backend Engineer · Java Developer · Full Stack Engineer ·
-              Spring Boot / Angular opportunities
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <div class="footer">Manish · Software Engineer</div>
-    </main>
+<div class="sig" aria-hidden="true">
+  <div class="sig-glow"></div>
+  <div class="sig-beam"></div>
+  <div class="sig-beam2"></div>
+  <div class="sig-ring r1"></div>
+  <div class="sig-ring r2"></div>
+  <div class="sig-ring r3"></div>
+  <div class="sig-bat">
+    <svg viewBox="0 0 200 92" fill="#F5C518">
+      <path d="M100 8 L90 0 L78 10 C58 16 24 26 4 50 L20 46 C30 50 40 58 44 68 L42 80 C52 88 76 92 100 92 C124 92 148 88 158 80 L156 68 C160 58 170 50 180 46 L196 50 C176 26 142 16 122 10 L110 0 Z"/>
+    </svg>
   </div>
+</div>
+
+<div class="page">
+  <aside class="sidebar">
+    <div class="sb-bg"></div>
+    <svg class="sb-bat" width="160" height="74" viewBox="0 0 200 92" fill="currentColor" aria-hidden="true">
+      <path d="M100 8 L90 0 L78 10 C58 16 24 26 4 50 L20 46 C30 50 40 58 44 68 L42 80 C52 88 76 92 100 92 C124 92 148 88 158 80 L156 68 C160 58 170 50 180 46 L196 50 C176 26 142 16 122 10 L110 0 Z"/>
+    </svg>
+    <div class="avatar">MV</div>
+    <div class="tiny">// github.com/manish31220 · Los Angeles, CA</div>
+    <div class="name">MANISH<br><span>VEMULAPALLI</span></div>
+    <div class="role">Software Engineer · Java Full Stack Developer</div>
+    <div class="summary">Java / Spring Boot engineer building scalable backend services, microservices, enterprise APIs, Angular applications, and cloud-ready systems. Focused on reliable production engineering, event-driven integrations, and clean delivery.</div>
+    <div class="cl">
+      <div class="ci"><span class="dot"></span><div>manishvemulapalli9734@gmail.com</div></div>
+      <div class="ci"><span class="dot"></span><div>github.com/manish31220</div></div>
+      <div class="ci"><span class="dot"></span><div>Los Angeles, California, USA</div></div>
+      <div class="ci"><span class="dot"></span><div>Open to SE / Full Stack / Backend roles</div></div>
+    </div>
+    <div class="cta">
+      <a class="btn primary" href="https://github.com/manish31220" target="_blank" rel="noreferrer">View GitHub</a>
+      <a class="btn" href="mailto:manishvemulapalli9734@gmail.com">Email Me</a>
+    </div>
+  </aside>
+
+  <main class="content">
+    <div class="topbar">
+      <div class="nav">
+        <div class="nav-links">
+          <a href="#about">About</a><a href="#experience">Experience</a><a href="#skills">Skills</a>
+          <a href="#ai" style="color:var(--y);text-shadow:0 0 10px rgba(245,197,24,.4)">⚡ AI Stack</a>
+          <a href="#projects">Projects</a><a href="#education">Education</a><a href="#contact">Contact</a>
+        </div>
+        <div class="nav-badge">Java · Spring Boot · Angular · AWS</div>
+      </div>
+    </div>
+
+    <section class="hero" id="home">
+      <div class="eyebrow">Software Engineer</div>
+      <div class="hname" id="heroName">
+        MANISH<br><span class="yl">VEMULAPALLI</span>
+        <span class="gl a" aria-hidden="true">MANISH<br>VEMULAPALLI</span>
+        <span class="gl b" aria-hidden="true">MANISH<br>VEMULAPALLI</span>
+      </div>
+      <div class="hsub"><span id="typeTarget"></span><span class="cursor"></span></div>
+      <p class="hdesc">4+ years across full stack engineering, enterprise APIs, distributed workflows, and cloud-native development. Built and supported Spring Boot services, Angular applications, event-driven integrations, CI/CD pipelines, and production support processes across business-critical systems.</p>
+      <div class="stats">
+        <div class="stat sr" style="--d:0ms"><strong class="cnt" data-to="4" data-sfx="+">0+</strong><span>Years in software engineering and full stack delivery</span></div>
+        <div class="stat sr" style="--d:70ms"><strong>Java</strong><span>Spring Boot, REST APIs, microservices, backend</span></div>
+        <div class="stat sr" style="--d:140ms"><strong>Angular</strong><span>TypeScript, enterprise UI, frontend integration</span></div>
+        <div class="stat sr" style="--d:210ms"><strong>AWS</strong><span>EKS, ECR, RDS, Docker, Kubernetes, Terraform</span></div>
+        <div class="stat sr" style="--d:280ms"><strong class="cnt" data-to="2" data-sfx="M+">0M+</strong><span>Kafka events/day, retry/DLQ handling</span></div>
+        <div class="stat sr" style="--d:350ms"><strong class="cnt" data-to="30" data-sfx="%" data-pre="~">~0%</strong><span>MTTR reduction via dashboards & alerts</span></div>
+        <div class="stat sr" style="--d:420ms"><strong class="cnt" data-to="35" data-sfx="%" data-pre="~">~0%</strong><span>API latency improvement via query tuning</span></div>
+        <div class="stat sr" style="--d:490ms"><strong>CI/CD</strong><span>Jenkins automation, build promotion, rollbacks</span></div>
+      </div>
+    </section>
+
+    <section class="block sr" id="about">
+      <div class="label">// 01 — Profile</div><h2 class="stitle">ABOUT</h2>
+      <div class="ag">
+        <div class="ac">I'm a Java Full Stack Developer with strong hands-on experience building backend services, microservices, and enterprise applications using Java, Spring Boot, Angular, TypeScript, Kafka, SQL / NoSQL databases, and cloud-native tools.<br><br>
+        Beyond core backend work, I'm actively integrating AI/LLM tooling into engineering workflows — using Spring AI and LangChain4j to build RAG pipelines, semantic search services, and AI-accelerated delivery pipelines. I believe the next generation of backend engineers will be defined by their ability to combine solid systems design with intelligent automation.<br><br>
+        I'm especially interested in backend engineering, scalable distributed systems, cloud platforms, LLM-powered applications, and modern software delivery practices.</div>
+        <div class="pg">
+          <span class="pill">Java 17+</span><span class="pill">Spring Boot</span><span class="pill">Spring AI</span>
+          <span class="pill">Angular</span><span class="pill">TypeScript</span><span class="pill">Microservices</span>
+          <span class="pill">Kafka</span><span class="pill">Redis</span><span class="pill">gRPC</span>
+          <span class="pill">GraphQL</span><span class="pill">AWS</span><span class="pill">Docker</span>
+          <span class="pill">Kubernetes</span><span class="pill">RAG Pipelines</span><span class="pill">CI/CD</span>
+          <span class="pill">Terraform</span><span class="pill">OAuth2 / JWT</span><span class="pill">LangChain4j</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="block sr" id="experience">
+      <div class="label">// 02 — Work History</div><h2 class="stitle">EXPERIENCE</h2>
+      <div class="tl">
+        <article class="job sr">
+          <div class="jh"><div><h3 class="jt">Software Engineer / Java Developer</h3><div class="jc">Sony Pictures Entertainment</div></div><div class="jd">Jan 2023 – Present</div></div>
+          <ul class="bullets">
+            <li>Designed and developed scalable, fault-tolerant microservices in Java (17+), Spring Boot, and REST APIs to support high-throughput enterprise workflows (S2F/C2C/RPM).</li>
+            <li>Deployed and supported containerized services on AWS EKS within a VPC; configured IAM roles/policies and security groups to enforce least-privilege access.</li>
+            <li>Increased release repeatability and reduced deployment errors by standardizing Docker build/versioning and Jenkins promotion workflows (ECR), enabling safer rollbacks.</li>
+            <li>Processed ~0.5–2M Kafka events/day for asynchronous workflows, improving stability with retry/DLQ handling and monitoring.</li>
+            <li>Cut MTTR by ~25–30% by building actionable dashboards and alerts (CloudWatch/Splunk/New Relic) and improving structured logging for faster incident triage.</li>
+            <li>Improved p95 API latency ~20–35% by tuning RDS MySQL queries; reduced top slow query from ~1000–1400 ms to ~300–700 ms.</li>
+            <li>Used vibe coding with Claude + Copilot to accelerate Spring Boot and Terraform delivery.</li>
+          </ul>
+          <div class="stack"><span>Java</span><span>Spring Boot</span><span>Spring Cloud</span><span>REST APIs</span><span>Swagger/OpenAPI</span><span>Kafka</span><span>Resilience4j</span><span>AWS</span><span>Claude + Copilot</span></div>
+        </article>
+        <article class="job sr" style="--d:80ms">
+          <div class="jh"><div><h3 class="jt">Full Stack / Backend Engineer</h3><div class="jc">Delta Airlines</div></div></div>
+          <ul class="bullets">
+            <li>Aggregated multi-source datasets via external REST APIs and normalized outputs for analytics; used Java 8+ (Streams/Lambdas/Optional) for clean transformations and validation.</li>
+            <li>Documented and designed RESTful APIs using Swagger/OpenAPI; collaborated with senior engineers on Spring Boot integrations and production support.</li>
+            <li>Supported Jenkins pipeline steps, log/trace review in Splunk/New Relic, and template-driven deliverables under change control.</li>
+          </ul>
+          <div class="stack"><span>Java</span><span>Angular</span><span>TypeScript</span><span>SQL</span><span>MongoDB</span><span>MarkLogic</span><span>Maven</span><span>JIRA</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="block sr" id="skills">
+      <div class="label">// 03 — Tech Stack</div><h2 class="stitle">SKILLS</h2>
+      <div class="sg">
+        <div class="card"><h3>Languages</h3><div class="list"><span>Java 17+</span><span>SQL</span><span>JavaScript</span><span>TypeScript</span><span>Python (scripting)</span></div></div>
+        <div class="card"><h3>Frameworks</h3><div class="list"><span>Spring Boot</span><span>Spring Cloud</span><span>Spring WebFlux</span><span>REST APIs</span><span>gRPC</span><span>GraphQL</span><span>Swagger/OpenAPI</span><span>Apache Kafka</span></div></div>
+        <div class="card"><h3>Architecture</h3><div class="list"><span>Microservices</span><span>Event-Driven</span><span>Reactive Programming</span><span>Resilience4j</span><span>Eureka</span><span>Spring Cloud Gateway</span><span>CQRS</span><span>Feature Toggles</span></div></div>
+        <div class="card"><h3>Data & Caching</h3><div class="list"><span>MySQL</span><span>PostgreSQL</span><span>MongoDB</span><span>MarkLogic</span><span>Redis</span><span>pgvector</span></div></div>
+        <div class="card"><h3>CI/CD & GitOps</h3><div class="list"><span>Jenkins</span><span>GitHub Actions</span><span>ArgoCD</span><span>Helm</span><span>Git</span><span>JIRA</span><span>Maven</span></div></div>
+        <div class="card"><h3>Cloud / DevOps</h3><div class="list"><span>AWS EKS</span><span>ECR</span><span>RDS</span><span>Lambda</span><span>SQS/SNS</span><span>VPC</span><span>IAM</span><span>Docker</span><span>Kubernetes</span><span>Terraform</span></div></div>
+        <div class="card"><h3>Observability</h3><div class="list"><span>Prometheus</span><span>Grafana</span><span>OpenTelemetry</span><span>Splunk</span><span>New Relic</span><span>CloudWatch</span></div></div>
+        <div class="card"><h3>Security & Testing</h3><div class="list"><span>OAuth 2.0</span><span>JWT</span><span>Spring Security</span><span>JUnit 5</span><span>Mockito</span><span>Testcontainers</span><span>OWASP</span></div></div>
+      </div>
+    </section>
+
+    <!-- AI & EMERGING TECH — standalone section -->
+    <section class="block sr ai-section" id="ai">
+      <div class="label ai-label">// ⚡ Trending — High Demand in 2025</div>
+      <h2 class="stitle">AI & EMERGING STACK</h2>
+      <p style="color:var(--mut);font-size:14.5px;line-height:1.85;margin-bottom:24px;max-width:780px;">
+        Actively integrating LLM tooling and AI-native patterns into Java backend systems — from RAG pipelines and vector search to agentic workflows and AI-accelerated delivery.
+      </p>
+      <div class="ai-grid">
+        <div class="ai-card">
+          <div class="ai-card-label">LLM Integration</div>
+          <div class="list">
+            <span>Spring AI</span><span>LangChain4j</span><span>OpenAI API</span>
+            <span>Anthropic Claude API</span><span>Ollama (local LLMs)</span>
+          </div>
+        </div>
+        <div class="ai-card">
+          <div class="ai-card-label">RAG & Vector Search</div>
+          <div class="list">
+            <span>RAG Pipelines</span><span>Pinecone</span><span>pgvector</span>
+            <span>ChromaDB</span><span>Embedding Models</span><span>Semantic Search</span>
+          </div>
+        </div>
+        <div class="ai-card">
+          <div class="ai-card-label">AI Dev Tooling</div>
+          <div class="list">
+            <span>GitHub Copilot</span><span>Claude Code</span><span>Cursor</span>
+            <span>Prompt Engineering</span><span>Vibe Coding</span>
+          </div>
+        </div>
+        <div class="ai-card">
+          <div class="ai-card-label">System Design</div>
+          <div class="list">
+            <span>Distributed Systems</span><span>System Design</span><span>Low Latency APIs</span>
+            <span>Event Sourcing</span><span>API Gateway Patterns</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block sr" id="projects">
+      <div class="label">// 04 — Selected Systems</div><h2 class="stitle">PROJECTS</h2>
+      <div class="pj">
+        <div class="card sr" style="--d:0ms"><h3>Client Productivity + Analytics</h3><p>Services powering KPI reporting, dashboards, and near real-time tracking; designed REST endpoints and data models supporting insight workflows.</p></div>
+        <div class="card sr" style="--d:80ms"><h3>Data + Workflow Integrations</h3><p>Normalized multi-source datasets for downstream reporting; reusable validation and transformation utilities for consistency across systems.</p></div>
+        <div class="card sr" style="--d:160ms"><h3>Resilient Microservices Platform</h3><p>Reliability patterns (Resilience4j), service discovery (Eureka), and gateway routing (Spring Cloud Gateway) for stability under degradation.</p></div>
+        <div class="card sr" style="--d:240ms"><h3>Observability & Incident Readiness</h3><p>Dashboards/alerts (Splunk/New Relic/CloudWatch) and operational runbooks to improve detection and triage speed across production systems.</p></div>
+        <div class="card sr ai-proj" style="--d:320ms">
+          <div class="ai-proj-badge">AI / LLM</div>
+          <h3>RAG-Powered Knowledge Assistant</h3>
+          <p>Built a Spring AI + LangChain4j service that indexes internal docs into a pgvector store and surfaces semantic answers via REST API — reducing manual lookup time for ops teams.</p>
+        </div>
+        <div class="card sr ai-proj" style="--d:400ms">
+          <div class="ai-proj-badge">AI / LLM</div>
+          <h3>LLM-Accelerated Code Generation Pipeline</h3>
+          <p>Used Claude + Copilot in CI loops to auto-generate boilerplate Spring Boot services, unit tests (JUnit 5 + Testcontainers), and Terraform modules — consistently passed review and CI gates.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block sr" id="education">
+      <div class="label">// 05 — Academic Background</div><h2 class="stitle">EDUCATION</h2>
+      <div class="eg">
+        <div class="card"><h3>Master's Degree</h3><p>Graduate-level academic background in computing / engineering-related study, supporting software development and systems thinking.</p></div>
+        <div class="card"><h3>Bachelor's Degree</h3><p>Strong foundation in programming, databases, software engineering, application architecture, and problem solving.</p></div>
+      </div>
+    </section>
+
+    <section class="block sr" id="contact">
+      <div class="label">// 06 — Let's Connect</div><h2 class="stitle">CONTACT</h2>
+      <div class="cb">
+        <div class="card"><h3>Reach Out</h3><p style="color:var(--mut);line-height:1.85;margin:0 0 16px;font-size:14px;">The fastest way to reach me is by email. If you're hiring for Java, backend, microservices, or full stack roles, feel free to reach out directly.</p><div class="list"><span>manishvemulapalli9734@gmail.com</span><span>github.com/manish31220</span></div></div>
+        <div class="card"><h3>Looking For</h3><p style="color:var(--mut);line-height:1.9;margin:0;font-size:14px;">Software Engineer · Backend Engineer · Java Developer · Full Stack Engineer · Spring Boot / Angular opportunities in the US</p></div>
+      </div>
+    </section>
+
+    <div class="footer">// Manish Vemulapalli · Software Engineer · Los Angeles, CA</div>
+  </main>
+</div>
+
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    function applyLetterReveal(selector) {
-      const elements = document.querySelectorAll(selector);
-
-      elements.forEach((el) => {
-        const original = el.innerHTML.replace(/<br\s*\/?>/gi, "\n");
-        el.classList.add("reveal-letters");
-        el.innerHTML = "";
-
-        let charIndex = 0;
-
-        for (const ch of original) {
-          if (ch === "\n") {
-            el.appendChild(document.createElement("br"));
-            continue;
-          }
-
-          const span = document.createElement("span");
-          span.className = "char" + (ch === " " ? " space" : "");
-          span.style.setProperty("--char-index", charIndex);
-          span.textContent = ch === " " ? "\u00A0" : ch;
-          el.appendChild(span);
-          charIndex++;
-        }
-      });
-
-      if (!prefersReducedMotion) {
-        requestAnimationFrame(() => {
-          document.querySelectorAll(selector).forEach((el) => {
-            el.classList.add("play");
-          });
-        });
-      }
-    }
-
-    function applyScrollReveal() {
-      const targets = [
-        ".hero",
-        ".stat",
-        "section.block",
-        ".section-title",
-        ".label",
-        ".job",
-        ".card",
-        ".footer"
-      ];
-
-      const elements = document.querySelectorAll(targets.join(","));
-
-      elements.forEach((el, index) => {
-        el.classList.add("scroll-reveal");
-       const delay = el.classList.contains("stat")
-  ? Math.min(index * 14, 70)
-  : Math.min(index * 18, 90);
-        el.style.setProperty("--reveal-delay", delay + "ms");
-      });
-
-      if (prefersReducedMotion) {
-        elements.forEach((el) => el.classList.add("is-visible"));
-        return;
-      }
-
-      const observer = new IntersectionObserver(
-        (entries, obs) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("is-visible");
-              obs.unobserve(entry.target);
-            }
-          });
-        },
-        {
-          threshold: 0.12,
-          rootMargin: "0px 0px -40px 0px"
-        }
-      );
-
-      elements.forEach((el) => observer.observe(el));
-    }
-
-    applyLetterReveal(".name, .hero h1, .hero .subtitle, .eyebrow");
-    applyScrollReveal();
-  });
+(function(){
+'use strict';
+/* CANVAS */
+const cv=document.getElementById('bg-canvas'),cx=cv.getContext('2d');
+function resize(){cv.width=innerWidth;cv.height=innerHeight;}
+resize();addEventListener('resize',resize);
+function mkDrops(){return Array.from({length:300},()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,len:Math.random()*18+8,spd:Math.random()*4+2.5,op:Math.random()*0.28+0.1}));}
+let drops=mkDrops();addEventListener('resize',()=>{drops=mkDrops();});
+class Bat{
+  constructor(off){this.init(off);}
+  init(off){this.x=off?-120-Math.random()*300:Math.random()*innerWidth;this.y=Math.random()*innerHeight*0.55+40;this.spd=Math.random()*2.2+1.2;this.sz=Math.random()*18+12;this.fl=Math.random()*Math.PI*2;this.fs=Math.random()*0.2+0.1;this.wv=Math.random()*Math.PI*2;this.wa=Math.random()*22+12;this.op=Math.random()*0.45+0.3;}
+  update(){this.x+=this.spd;this.fl+=this.fs;this.wv+=0.045;this.y+=Math.sin(this.wv)*0.4;if(this.x>innerWidth+130)this.init(true);}
+  draw(c){
+    const w=Math.cos(this.fl)*this.sz*1.5,h=this.sz*0.6;
+    c.save();c.translate(this.x,this.y);
+    c.fillStyle=`rgba(245,197,24,${this.op})`;
+    c.shadowColor='rgba(245,197,24,0.65)';c.shadowBlur=this.sz*1.4;
+    c.beginPath();c.ellipse(0,h*.1,this.sz*.3,h*.4,0,0,Math.PI*2);c.fill();
+    c.beginPath();c.moveTo(0,0);c.bezierCurveTo(-w*.5,-h*.6,-w*.95,h*.2,-w*.75,h*.55);c.bezierCurveTo(-w*.4,h*.75,-w*.12,h*.3,0,h*.2);c.fill();
+    c.beginPath();c.moveTo(0,0);c.bezierCurveTo(w*.5,-h*.6,w*.95,h*.2,w*.75,h*.55);c.bezierCurveTo(w*.4,h*.75,w*.12,h*.3,0,h*.2);c.fill();
+    c.beginPath();c.moveTo(-this.sz*.18,-h*.35);c.lineTo(-this.sz*.32,-h*.88);c.lineTo(-this.sz*.06,-h*.35);c.fill();
+    c.beginPath();c.moveTo(this.sz*.18,-h*.35);c.lineTo(this.sz*.32,-h*.88);c.lineTo(this.sz*.06,-h*.35);c.fill();
+    c.restore();
+  }
+}
+const bats=Array.from({length:10},()=>new Bat(false));
+function frame(){
+  cx.clearRect(0,0,cv.width,cv.height);
+  drops.forEach(d=>{cx.strokeStyle=`rgba(180,210,240,${d.op})`;cx.lineWidth=0.7;cx.beginPath();cx.moveTo(d.x,d.y);cx.lineTo(d.x-d.len*.2,d.y+d.len);cx.stroke();d.y+=d.spd;d.x-=d.spd*.18;if(d.y>cv.height+d.len){d.y=-d.len;d.x=Math.random()*cv.width;}});
+  bats.forEach(b=>{b.update();b.draw(cx);});
+  requestAnimationFrame(frame);
+}
+frame();
+/* LIGHTNING */
+const ltng=document.getElementById('lightning');
+function doLightning(){ltng.classList.remove('flash');void ltng.offsetWidth;ltng.classList.add('flash');if(Math.random()>.5){setTimeout(()=>{ltng.classList.remove('flash');void ltng.offsetWidth;ltng.classList.add('flash');},220);}setTimeout(doLightning,Math.random()*14000+7000);}
+setTimeout(doLightning,2500);
+/* GLITCH */
+const nm=document.getElementById('heroName');
+function glitch(){nm.classList.add('glitch');setTimeout(()=>nm.classList.remove('glitch'),400);setTimeout(glitch,Math.random()*4000+1600);}
+setTimeout(glitch,1000);
+/* TYPEWRITER */
+const tyEl=document.getElementById('typeTarget');
+const tyStr='Java Full Stack Developer';
+let ti=0,typing=true;
+function type(){
+  if(typing){if(ti<=tyStr.length){tyEl.textContent=tyStr.slice(0,ti++);setTimeout(type,ti>tyStr.length?3500:65);}else{typing=false;setTimeout(type,3500);}}
+  else{if(ti>0){tyEl.textContent=tyStr.slice(0,--ti);setTimeout(type,38);}else{typing=true;setTimeout(type,500);}}
+}
+setTimeout(type,700);
+/* COUNTERS */
+function runCnt(el){const to=parseInt(el.dataset.to,10),sfx=el.dataset.sfx||'',pre=el.dataset.pre||'',dur=1800,t0=performance.now();const tick=n=>{const p=Math.min((n-t0)/dur,1),e=1-Math.pow(1-p,3);el.textContent=pre+Math.floor(e*to)+sfx;if(p<1)requestAnimationFrame(tick);};requestAnimationFrame(tick);}
+/* SCROLL REVEAL */
+const srEls=document.querySelectorAll('.sr'),noM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+if(noM){srEls.forEach(el=>{el.classList.add('on');el.querySelectorAll('.cnt').forEach(runCnt);});}
+else{const obs=new IntersectionObserver((ens,o)=>{ens.forEach(en=>{if(!en.isIntersecting)return;en.target.classList.add('on');en.target.querySelectorAll('.cnt').forEach(runCnt);o.unobserve(en.target);});},{threshold:.06,rootMargin:'0px 0px -16px 0px'});srEls.forEach(el=>obs.observe(el));}
+/* BAT BURSTS */
+function batBurst(){for(let i=0;i<4;i++){setTimeout(()=>{const b=new Bat(true);b.sz=Math.random()*24+16;b.op=Math.random()*0.5+0.38;bats.push(b);if(bats.length>16)bats.shift();},i*350);}setTimeout(batBurst,Math.random()*14000+10000);}
+setTimeout(batBurst,5000);
+})();
 </script>
-  
 </body>
 </html>
